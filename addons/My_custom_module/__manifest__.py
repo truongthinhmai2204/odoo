@@ -1,11 +1,11 @@
 {
-    'name': 'Your Module Name',
+    'name': 'First Custom module Odoo',
     'summary': 'Module summary',
     'description': """
     Your module description
     """,
-    'author': 'Your Name',
-    'website': 'http://www.yourwebsite.com',
+    'author': 'Mai Trường Thịnh',
+    'website': 'http://www.believeme.com',
     'category': 'Category',
     'version': '1.0',
     'depends': ['base'],
