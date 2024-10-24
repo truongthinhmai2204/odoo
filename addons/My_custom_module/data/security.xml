@@ -1,8 +1,0 @@
-<odoo>
-    <data noupdate="1">
-        <record id="model_your_model" model="ir.model">
-            <field name="name">your.model</field>
-            <field name="model">your.model</field>
-        </record>
-    </data>
-</odoo>
