@@ -8,7 +8,12 @@
     'depends': ['base', 'maintenance'],
     'data': [
         'views/maintenance_equipment_views.xml',
+        'data/equipment_data.xml',
+         'report/equipment_report.xml',
+        'report/equipment_report_template.xml',
+        'wizards/equipment_wizard_view.xml',
     ],
     'installable': True,
     'application': True,
 }
+
