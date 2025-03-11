@@ -15,5 +15,12 @@
     ],
     'installable': True,
     'application': True,
+
+    'assets': {
+    'web.assets_backend': [
+        'your_module/static/css/custom_style.css',
+        'your_module/static/js/custom_script.js',
+    ],
+    },
 }
 
