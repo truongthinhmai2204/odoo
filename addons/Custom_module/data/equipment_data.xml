@@ -1,0 +1,6 @@
+<odoo>
+    <record id="equipment_confirm_1" model="equipment.confirmation">
+        <field name="name">Thiết bị Laptop</field>
+        <field name="status">confirmed</field>
+    </record>
+</odoo>

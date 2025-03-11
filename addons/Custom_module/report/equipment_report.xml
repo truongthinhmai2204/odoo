@@ -1,0 +1,9 @@
+<odoo>
+    <report
+        id="equipment_report"
+        model="equipment.confirmation"
+        string="Equipment Report"
+        report_type="qweb-pdf"
+        file="your_module.equipment_report_template"
+    />
+</odoo>
