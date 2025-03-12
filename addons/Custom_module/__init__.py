@@ -1,2 +1,1 @@
-from . import models
-from . import equipment_confirmation
+from . import models  # Chỉ import models
