@@ -3,7 +3,7 @@
     <record id="view_equipment_confirmation_form" model="ir.ui.view">
         <field name="name">equipment.confirmation.form</field>
         <field name="model">maintenance.equipment</field>
-        <field name="inherit_id" ref="maintenance.equipment_form_view"/>
+        <field name="inherit_id" ref="maintenance.view_equipment_form"/>
         <field name="arch" type="xml">
             <xpath expr="//group[@name='group_information']" position="after">
                 <group>

@@ -6,12 +6,13 @@
     'category': 'Tools',
     'author': 'Thinh',
     'depends': ['base', 'maintenance'],
-    'data': [
+    'data': [                       
         'views/equipment_confirmation.xml',
         'data/equipment_data.xml',
         'report/equipment_report.xml',
         'report/equipment_report_template.xml',
         'wizards/equipment_wizard_view.xml',
+        'security/ir.model.access.csv',
     ],
     'installable': True,
     'application': True,
