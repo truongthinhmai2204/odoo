@@ -1,27 +1,30 @@
 {
-    'name': 'Equipment Confirmation',
+    'name': 'Maintenance Request Management',
     'version': '1.0',
-    'summary': 'Module to confirm equipment',
-    'description': 'A simple module to confirm equipment',
-    'category': 'Tools',
-    'author': 'Thinh',
-    'depends': ['base', 'maintenance'],
-    'data': [                       
-        'views/equipment_confirmation.xml',
-        'data/equipment_data.xml',
-        'report/equipment_report.xml',
-        'report/equipment_report_template.xml',
-        'wizards/equipment_wizard_view.xml',
-        'security/ir.model.access.csv',
+    'summary': 'Module quản lý yêu cầu bảo trì',
+    'sequence': 10,
+    'description': """Quản lý yêu cầu bảo trì và kiểm duyệt thiết bị""",
+    'category': 'Maintenance',
+    'author': 'KenZ',
+    'website': 'https://yourcompany.com',
+    'license': 'LGPL-3',
+    'depends': ['base', 'mail'],  
+    'data': [
+        'security/ir.model.access.csv',  
+        'security/security.xml',         
+        'views/maintenance_request_views.xml', 
+        'data/maintenance_data.xml',      
+        'wizards/maintenance_wizard_views.xml',   
+        'static/description/index.html',  
+        'i18n/en.po',                     
     ],
-    'installable': True,
-    'application': True,
-
     'assets': {
-    'web.assets_backend': [
-        'static/css/custom_style.css',
-        'static/js/custom_script.js',
-    ],
+        'web.assets_backend': [
+            'static/src/css/style.css',   
+            'static/src/js/script.js',   
+        ],
     },
+    'application': True,
+    'installable': True,
+    'auto_install': False,
 }
-

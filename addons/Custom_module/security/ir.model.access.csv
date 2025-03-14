@@ -1,3 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_equipment_user,Equipment User Access,model_equipment_confirmation,base.group_user,1,0,0,0
-access_equipment_manager,Equipment Manager Access,model_equipment_confirmation,base.group_system,1,1,1,1
+access_maintenance_request_user,Maintenance Request User,model_maintenance_request,base.group_user,1,1,1,0
+access_maintenance_request_manager,Maintenance Request Manager,model_maintenance_request,base.group_system,1,1,1,1

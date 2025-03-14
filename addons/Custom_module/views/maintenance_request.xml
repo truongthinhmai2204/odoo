@@ -1,0 +1,23 @@
+<odoo>
+    <record id="view_maintenance_request_form" model="ir.ui.view">
+        <field name="name">maintenance.request.form</field>
+        <field name="model">maintenance.request</field>
+        <field name="arch" type="xml">
+            <form string="Maintenance Request">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="equipment_id"/>
+                        <field name="state" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_confirm_request" type="object" string="Xác nhận" class="btn-primary" 
+                                attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                        <button name="action_reject_request" type="object" string="Từ chối" class="btn-danger" 
+                                attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

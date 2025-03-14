@@ -1,49 +1,8 @@
-# Translation of Odoo Module to English (US)
-# Copyright (C) 2025 Your Company
-# This file is distributed under the same license as the Odoo module.
-msgid ""
-msgstr ""
-"Project-Id-Version: Custom Module\n"
-"POT-Creation-Date: 2025-03-12\n"
-"PO-Revision-Date: 2025-03-12\n"
-"Last-Translator: KenZ\n"
-"Language-Team: English (US)\n"
-"Language: en_US\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+msgid "Maintenance Request"
+msgstr "Yêu cầu bảo trì"
 
-#. module: Custom_module
-#: model:ir.model,name:custom_module.model_equipment_confirmation
-msgid "Equipment Confirmation"
-msgstr "Equipment Confirmation"
+msgid "Confirm"
+msgstr "Xác nhận"
 
-#. module: Custom_module
-#: model_terms:ir.ui.view,arch_db:custom_module.view_equipment_confirmation_form
-msgid "Confirm Equipment"
-msgstr "Confirm Equipment"
-
-#. module: Custom_module
-#: model_terms:ir.ui.view,arch_db:custom_module.view_equipment_confirmation_form
-msgid "Cancel"
-msgstr "Cancel"
-
-#. module: Custom_module
-#: model_terms:ir.ui.view,arch_db:custom_module.view_equipment_confirmation_form
-msgid "Submit"
-msgstr "Submit"
-
-#. module: Custom_module
-#: model:ir.model.fields,field_description:custom_module.field_equipment_confirmation__state
-msgid "State"
-msgstr "Status"
-
-#. module: Custom_module
-#: model:ir.model.fields,field_description:custom_module.field_equipment_confirmation__date
-msgid "Date"
-msgstr "Date"
-
-#. module: Custom_module
-#: model:ir.actions.act_window,name:custom_module.action_equipment_confirmation
-msgid "Equipment Confirmation Actions"
-msgstr "Equipment Confirmation Actions"
+msgid "Reject"
+msgstr "Từ chối"
