@@ -13,6 +13,7 @@
         'security/ir.model.access.csv',           
         'views/maintenance_request.xml', 
         'data/maintenance_data.xml',      
+        'data/maintenance_stage.xml',
         'wizards/maintenance_wizard_views.xml',   
         'static/description/index.html',  
         'i18n/en.po',                     
