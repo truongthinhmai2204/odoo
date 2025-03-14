@@ -15,6 +15,12 @@ class MaintenanceRequest(models.Model):
         string="Stage", 
         ondelete="set null"
     )
+
+    category_id = fields.Many2one(
+    'maintenance.category', 
+    string="Category",
+    ondelete='set null' 
+    )
     
     state = fields.Selection([
         ('draft', 'Draft'),
