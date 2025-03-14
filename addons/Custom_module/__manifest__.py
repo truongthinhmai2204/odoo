@@ -11,7 +11,7 @@
     'depends': ['base', 'mail'],  
     'data': [
         'security/ir.model.access.csv',           
-        'views/maintenance_request_views.xml', 
+        'views/maintenance_request.xml', 
         'data/maintenance_data.xml',      
         'wizards/maintenance_wizard_views.xml',   
         'static/description/index.html',  
