@@ -10,8 +10,7 @@
     'license': 'LGPL-3',
     'depends': ['base', 'mail'],  
     'data': [
-        'security/ir.model.access.csv',  
-        'security/security.xml',         
+        'security/ir.model.access.csv',           
         'views/maintenance_request_views.xml', 
         'data/maintenance_data.xml',      
         'wizards/maintenance_wizard_views.xml',   
@@ -20,8 +19,7 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'static/src/css/style.css',   
-            'static/src/js/script.js',   
+            'static/description/index.html',
         ],
     },
     'application': True,
