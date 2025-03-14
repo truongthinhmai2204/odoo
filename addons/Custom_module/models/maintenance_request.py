@@ -1,21 +1,34 @@
-from odoo import models, fields, api, _
-from odoo.exceptions import UserError
+from odoo import models, fields, api
 
 class MaintenanceRequest(models.Model):
     _inherit = 'maintenance.request'
-    
-    stock_confirmed = fields.Boolean(string='Xác nhận trong kho', default=False)
 
-    def action_check_inventory(self):
-        for request in self:
-            if request.equipment_id and request.equipment_id.stock_quant_ids.filtered(lambda q: q.quantity > 0):
-                request.write({'state': 'waiting_approval', 'message': _('Thiết bị có trong kho, chờ duyệt.')})
-                request.write({'stage_id': self.env.ref('maintenance.stage_confirmed').id})
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('waiting_approval', 'Waiting Approval'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+        ('done', 'Done')
+    ], default='draft', string="Status")
+
+    warehouse_confirmed = fields.Boolean(string="Warehouse Confirmed", default=False)
+
+    def action_confirm_warehouse(self):
+        for record in self:
+            if record.equipment_id and self.env['stock.quant'].search([
+                ('product_id', '=', record.equipment_id.product_id.id),
+                ('quantity', '>', 0)
+            ]):
+                record.warehouse_confirmed = True
+                record.state = 'waiting_approval'
             else:
-                raise UserError(_('Thiết bị không có trong kho, không thể thực hiện đơn.'))
+                record.state = 'rejected'
 
     def action_approve(self):
-        self.write({'stage_id': self.env.ref('maintenance.stage_approved').id})
+        for record in self:
+            if record.state == 'waiting_approval':
+                record.state = 'approved'
 
     def action_reject(self):
-        self.write({'stage_id': self.env.ref('maintenance.stage_rejected').id})
+        for record in self:
+            record.state = 'rejected'
