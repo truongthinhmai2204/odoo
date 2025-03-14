@@ -5,6 +5,7 @@ class MaintenanceRequest(models.Model):
     _description = "Maintenance Request"
 
     name = fields.Char(string="Request Name", required=True)
+    equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
     category_id = fields.Many2one('maintenance.category', string="Category", ondelete="cascade")
     
     state = fields.Selection([
