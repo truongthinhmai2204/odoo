@@ -18,7 +18,7 @@ class MaintenanceRequest(models.Model):
     category_id = fields.Many2one(
         'maintenance.category', 
         string="Category",
-        ondelete='set null' 
+        ondelete='cascacde' 
     )
     
     state = fields.Selection([
