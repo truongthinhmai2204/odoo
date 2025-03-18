@@ -1,3 +1,5 @@
+from odoo import fields, models
+
 class MaintenanceRequest(models.Model):
     _name = "maintenance.request"
     
