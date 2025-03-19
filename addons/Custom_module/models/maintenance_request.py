@@ -15,6 +15,13 @@ class MaintenanceRequest(models.Model):
         ondelete="set null"
     )
 
+    owner_user_id = fields.Many2one(
+        'res.users',
+        string="Owner",
+        default=lambda self: self.env.user.id,
+        ondelete="set null"
+    )
+
     category_id = fields.Many2one(
         'maintenance.category', 
         string="Category",
