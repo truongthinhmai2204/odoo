@@ -14,6 +14,8 @@
         'views/maintenance_request.xml', 
         'data/maintenance_data.xml',      
         'data/maintenance_stage.xml',
+        'views/maintenance_category.xml',
+        'views/maintenance_request.xml',
         'wizards/maintenance_wizard_views.xml',   
         'static/description/index.html',  
         'i18n/en.po',                     
