@@ -16,7 +16,7 @@ class MaintenanceRequest(models.Model):
         ondelete="set null"
     )
 
-    owner_user_id = fields.Many2one('res.users', string="Owner User", related="some_field.owner_user_id", store=True)
+    owner_user_id = fields.Many2one('res.users', string="Owner User", store=True)
 
     category_id = fields.Many2one(
         'maintenance.category', 
