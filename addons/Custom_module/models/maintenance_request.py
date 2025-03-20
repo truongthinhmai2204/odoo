@@ -3,6 +3,7 @@ from odoo import models, fields, api
 class MaintenanceRequest(models.Model):
     _name = "maintenance.request"
     _description = "Maintenance Request"
+    _inherit = 'maintenance.request'
 
     name = fields.Char(string="Request Name", required=True)
     equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
