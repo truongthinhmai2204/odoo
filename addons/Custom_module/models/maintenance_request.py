@@ -10,17 +10,8 @@ class MaintenanceRequest(models.Model):
     maintenance_team_id = fields.Many2one('maintenance.team', string="Maintenance Team", ondelete="set null")
     request_date = fields.Date(string="Request Date", default=fields.Date.today)
     close_date = fields.Date(string="Close Date")
-    stage_id = fields.Many2one(
-        'maintenance.stage', 
-        string="Stage", 
-        ondelete="set null"
-    )
-
-    category_id = fields.Many2one(
-        'maintenance.category', 
-        string="Category",
-        ondelete="cascade"
-    )
+    stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
+    category_id = fields.Many2one('maintenance.category', string="Category",ondelete="cascade")
     
     state = fields.Selection([
         ('draft', 'Draft'),
