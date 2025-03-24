@@ -8,6 +8,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="sale_order_id"/>
                         <field name="equipment_id"/>
                         <field name="state" readonly="1"/>
                     </group>
