@@ -8,7 +8,7 @@
     'author': 'KenZ',
     'website': 'https://yourcompany.com',
     'license': 'LGPL-3',
-    'depends': ['base', 'mail', 'sale'], 
+    'depends': ['base', 'mail', 'sale', 'maintenance'], 
     'data': [
         'security/ir.model.access.csv',           
         'views/maintenance_request.xml', 

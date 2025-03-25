@@ -1,10 +1,12 @@
 from odoo import models, fields, api
+import logging
 from odoo.exceptions import ValidationError
 
 class MaintenanceRequest(models.Model):
     _name = "maintenance.request"
     _description = "Maintenance Request"
     _inherit = 'maintenance.request'
+    _logger = logging.getLogger(__name__)
 
     name = fields.Char(string="Request Name", required=True)
     equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
@@ -21,6 +23,9 @@ class MaintenanceRequest(models.Model):
         ('confirmed', 'Confirmed'),
         ('rejected', 'Rejected'),
     ], default='draft', string="Status", tracking=True)
+
+    def _test_log(self):
+        self.__class__._logger.info(f"DEBUG: {self.env['res.users']._fields}")
 
     @api.model_create_multi
     def create(self, vals_list):
