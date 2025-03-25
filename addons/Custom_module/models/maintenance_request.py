@@ -16,7 +16,7 @@ class MaintenanceRequest(models.Model):
     close_date = fields.Date(string="Close Date")
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
     category_id = fields.Many2one('maintenance.category', string="Category",ondelete="cascade")
-    owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
+    owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda self: self.env.uid, store=True)
     
     state = fields.Selection([
         ('draft', 'Draft'),
