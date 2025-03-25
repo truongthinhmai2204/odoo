@@ -40,5 +40,5 @@ class MaintenanceRequest(models.Model):
     def create(self, vals_list):
         for vals in vals_list:
             if 'owner_user_id' not in vals:
-                vals['owner_user_id'] = self.env.user.id  # Gán người dùng hiện tại
+                vals['owner_user_id'] = self.env.user.id  
         return super().create(vals_list)
