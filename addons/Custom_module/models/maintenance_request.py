@@ -33,7 +33,7 @@ class MaintenanceRequest(models.Model):
         for record in records:
             if record.equipment_id and not self._check_equipment_stock(record.equipment_id):
                 record.write({'state': 'cancelled'})
-                raise ValidationError(_("Equipment does not exist, sales order will be cancelled"))
+                raise ValidationError(("Equipment does not exist, sales order will be cancelled"))
             record.write({'state': 'confirmed'})
         return records
 
