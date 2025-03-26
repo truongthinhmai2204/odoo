@@ -3,11 +3,12 @@ from odoo import api, fields, models, SUPERUSER_ID, _
 import logging
 from odoo.exceptions import ValidationError
 
+_logger = logging.getLogger(__name__)
+
 class MaintenanceRequest(models.Model):
     _name = "maintenance.request"
     _description = "Maintenance Request"
     _inherit = 'maintenance.request'
-    _logger = logging.getLogger(__name__)
 
     name = fields.Char(string="Request Name", required=True)
     equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
@@ -26,17 +27,15 @@ class MaintenanceRequest(models.Model):
     ], default='draft', string="Status", tracking=True)
 
     def _test_log(self):
-        self.__class__._logger.info(f"DEBUG: {self.env['res.users']._fields}")
+        _logger.info(f"DEBUG: {self.env['res.users']._fields}")
 
     @api.model_create_multi
     def create(self, vals_list):
-        records = super().create(vals_list)
-        for record in records:
-            if record.equipment_id and not self._check_equipment_stock(record.equipment_id):
-                record.write({'state': 'cancelled'})
-                raise ValidationError(("Equipment does not exist, sales order will be cancelled"))
-            record.write({'state': 'confirmed'})
-        return records
+        for vals in vals_list:
+            if 'owner_user_id' not in vals:
+                vals['owner_user_id'] = self.env.user.id
+        _logger.info("DEBUG: Vals before create: %s", vals_list)  # In giá trị vals trước khi tạo
+        return super().create(vals_list)
 
     def _check_equipment_stock(self, equipment):
         stock_quant = self.env['stock.quant'].search([('product_id', '=', equipment.id), ('quantity', '>', 0)])
