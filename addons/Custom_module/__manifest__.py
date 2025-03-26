@@ -14,7 +14,6 @@
         'views/maintenance_request.xml', 
         'views/maintenance_category.xml',
         'wizards/maintenance_wizard_view.xml',   
-        'static/description/index.html',  
     ],
     'assets': {
         'web.assets_backend': [
