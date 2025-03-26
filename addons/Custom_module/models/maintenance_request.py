@@ -37,6 +37,4 @@ class MaintenanceRequest(models.Model):
         stock_quant = self.env['stock.quant'].search([('product_id', '=', equipment.id), ('quantity', '>', 0)], limit=1)
         return bool(stock_quant)
     
-    @api.model_create_multi
-        self._test_log(vals_list)
-        return super().create(vals_list)
+    # Removed redundant and misplaced code block
