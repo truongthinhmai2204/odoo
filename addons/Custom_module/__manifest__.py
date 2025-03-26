@@ -15,11 +15,11 @@
         'views/maintenance_category.xml',
         'wizards/maintenance_wizard_view.xml',   
     ],
+    'application': True,
+    'installable': True,
     'assets': {
         'web.assets_backend': [
             'static/description/index.html',
         ],
     },
-    'application': True,
-    'installable': True,
 }
