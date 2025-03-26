@@ -16,8 +16,9 @@ class MaintenanceRequest(models.Model):
     close_date = fields.Date(string="Close Date")
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
     category_id = fields.Many2one('maintenance.category', string="Category",ondelete="cascade")
+    user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User')   
-    
+
     stock_status = fields.Selection([
         ('available', 'Available in Stock'),
         ('not_available', 'Not Available in Stock')
