@@ -8,17 +8,4 @@
     <record id="maintenance_stage_cancelled" model="maintenance.stage">
         <field name="name">Cancelled</field>
     </record>
-
-    <!-- Tạo đơn bảo trì mẫu -->
-    <record id="maintenance_request_1" model="maintenance.request">
-        <field name="name">Request 1</field>
-        <field name="equipment_id" ref="maintenance_equipment_1"/>
-        <field name="stage_id" ref="maintenance_stage_confirmed"/>
-    </record>
-
-    <record id="maintenance_request_2" model="maintenance.request">
-        <field name="name">Request 2</field>
-        <field name="equipment_id" ref="maintenance_equipment_2"/>
-        <field name="stage_id" ref="maintenance_stage_cancelled"/>
-    </record>
 </odoo>
