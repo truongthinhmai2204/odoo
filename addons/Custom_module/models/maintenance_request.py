@@ -27,7 +27,7 @@ class MaintenanceRequest(models.Model):
     ], default='draft', string="Status", tracking=True)
 
     def _test_log(self):
-        _logger.info(f"DEBUG: {self.env['res.users']._fields}")
+        _logger.info("Vals before create: %s", vals_list)
 
     @api.model_create_multi
     def create(self, vals_list):
