@@ -9,14 +9,12 @@
     'depends': ['mail'], 
     'data': [
         'security/ir.model.access.csv',           
-        'views/maintenance_request.xml', 
-        'data/maintenance_data.xml',      
+        'data/maintenance_request_data.xml',      
         'data/maintenance_stage.xml',
+        'views/maintenance_request.xml', 
         'views/maintenance_category.xml',
-        'views/maintenance_request.xml',
-        'wizards/maintenance_wizard_views.xml',   
+        'wizards/maintenance_wizard_view.xml',   
         'static/description/index.html',  
-        'i18n/en.po',                     
     ],
     'assets': {
         'web.assets_backend': [
