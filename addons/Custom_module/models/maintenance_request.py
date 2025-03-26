@@ -1,7 +1,5 @@
 from odoo import models, fields, api
-from odoo import api, fields, models, SUPERUSER_ID, _
 import logging
-from odoo.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -18,7 +16,7 @@ class MaintenanceRequest(models.Model):
     close_date = fields.Date(string="Close Date")
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
     category_id = fields.Many2one('maintenance.category', string="Category",ondelete="cascade")
-    owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)   
+    owner_user_id = fields.Many2one('res.users', string='Created by User')   
 
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -26,7 +24,7 @@ class MaintenanceRequest(models.Model):
         ('rejected', 'Rejected'),
     ], default='draft', string="Status", tracking=True)
 
-    def _test_log(self):
+    def _test_log(self, vals_list):
         _logger.info("Vals before create: %s", vals_list)
 
     @api.model_create_multi
@@ -34,16 +32,11 @@ class MaintenanceRequest(models.Model):
         for vals in vals_list:
             if 'owner_user_id' not in vals:
                 vals['owner_user_id'] = self.env.user.id
-        _logger.info("DEBUG: Vals before create: %s", vals_list)  # In giá trị vals trước khi tạo
-        return super().create(vals_list)
-
-    def _check_equipment_stock(self, equipment):
-        stock_quant = self.env['stock.quant'].search([('product_id', '=', equipment.id), ('quantity', '>', 0)])
+        self._test_log(vals_list)
+        return super(MaintenanceRequest, self).create(vals_list)
+        stock_quant = self.env['stock.quant'].search([('product_id', '=', equipment.id), ('quantity', '>', 0)], limit=1)
         return bool(stock_quant)
     
     @api.model_create_multi
-    def create(self, vals_list):
-        for vals in vals_list:
-            if 'owner_user_id' not in vals:
-                vals['owner_user_id'] = self.env.user.id  
+        self._test_log(vals_list)
         return super().create(vals_list)
