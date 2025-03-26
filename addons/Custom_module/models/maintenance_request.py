@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo import api, fields, models, SUPERUSER_ID, _
 import logging
 from odoo.exceptions import ValidationError
 
@@ -16,8 +17,8 @@ class MaintenanceRequest(models.Model):
     close_date = fields.Date(string="Close Date")
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
     category_id = fields.Many2one('maintenance.category', string="Category",ondelete="cascade")
-    owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda self: self.env.uid, store=True)
-    
+    owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)   
+
     state = fields.Selection([
         ('draft', 'Draft'),
         ('confirmed', 'Confirmed'),

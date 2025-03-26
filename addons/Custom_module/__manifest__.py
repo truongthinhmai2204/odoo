@@ -5,10 +5,8 @@
     'sequence': 10,
     'description': """Quản lý yêu cầu bảo trì và kiểm duyệt thiết bị""",
     'category': 'Maintenance',
-    'author': 'KenZ',
     'website': 'https://yourcompany.com',
-    'license': 'LGPL-3',
-    'depends': ['base', 'mail', 'sale', 'maintenance'], 
+    'depends': ['mail'], 
     'data': [
         'security/ir.model.access.csv',           
         'views/maintenance_request.xml', 
@@ -27,5 +25,4 @@
     },
     'application': True,
     'installable': True,
-    'auto_install': False,
 }
