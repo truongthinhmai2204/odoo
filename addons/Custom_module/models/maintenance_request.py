@@ -17,24 +17,25 @@ class MaintenanceRequest(models.Model):
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
     category_id = fields.Many2one('maintenance.category', string="Category",ondelete="cascade")
     owner_user_id = fields.Many2one('res.users', string='Created by User')   
-
-    state = fields.Selection([
-        ('draft', 'Draft'),
-        ('confirmed', 'Confirmed'),
-        ('rejected', 'Rejected'),
-    ], default='draft', string="Status", tracking=True)
-
-    def _test_log(self, vals_list):
-        _logger.info("Vals before create: %s", vals_list)
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        for vals in vals_list:
-            if 'owner_user_id' not in vals:
-                vals['owner_user_id'] = self.env.user.id
-        self._test_log(vals_list)
-        return super(MaintenanceRequest, self).create(vals_list)
-        stock_quant = self.env['stock.quant'].search([('product_id', '=', equipment.id), ('quantity', '>', 0)], limit=1)
-        return bool(stock_quant)
     
-    # Removed redundant and misplaced code block
+    stock_status = fields.Selection([
+        ('available', 'Available in Stock'),
+        ('not_available', 'Not Available in Stock')
+    ], string="Stock Status", compute="_compute_stock_status", store=True)
+
+    @api.depends('equipment_id')
+    def _compute_stock_status(self):
+        for record in self:
+            stock_quant = self.env['stock.quant'].search([
+                ('product_id', '=', record.equipment_id.product_id.id),
+                ('quantity', '>', 0)
+            ], limit=1)
+            record.stock_status = 'available' if stock_quant else 'not_available'
+
+    def action_validate_request(self):
+        """Hàm xử lý chấp nhận hoặc hủy đơn bảo trì dựa trên tình trạng kho"""
+        for record in self:
+            if record.stock_status == 'available':
+                record.stage_id = self.env.ref('maintenance.stage_confirmed').id  # Chuyển trạng thái "Đã duyệt"
+            else:
+                record.stage_id = self.env.ref('maintenance.stage_cancelled').id
