@@ -15,7 +15,7 @@
         'views/maintenance_category.xml',
         'wizards/maintenance_wizard_view.xml',   
     ],
-    'application': False,
+    'application': True,
     'installable': True,
     'auto_install': True,
     'assets': {
