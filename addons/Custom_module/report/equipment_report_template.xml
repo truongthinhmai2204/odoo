@@ -1,10 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <template id="equipment_report_template">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="doc">
-                <p>Tên thiết bị: <t t-esc="doc.name"/></p>
-                <p>Trạng thái: <t t-esc="doc.status"/></p>
-            </t>
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2>Equipment Maintenance Report</h2>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Equipment</th>
+                            <th>Request Name</th>
+                            <th>Status</th>
+                            <th>Owner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="docs" t-as="equipment">
+                            <td t-esc="equipment.equipment_id.name or 'N/A'"/>
+                            <td t-esc="equipment.name"/>
+                            <td t-esc="equipment.stage_id.name or 'N/A'"/>
+                            <td t-esc="equipment.owner_user_id.name or 'N/A'"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </t>
     </template>
 </odoo>

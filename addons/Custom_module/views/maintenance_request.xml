@@ -1,20 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="view_maintenance_request_form_inherit" model="ir.ui.view">
-        <field name="name">maintenance.request.form.inherit</field>
+    <record id="view_maintenance_request_form" model="ir.ui.view">
+        <field name="name">maintenance.request.form</field>
         <field name="model">maintenance.request</field>
-        <field name="owner_user_id"/>
-        <field name="inherit_id" ref="maintenance.maintenance_request_form_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//sheet" position="inside">
-                <group>
-                    <field name="stock_status" readonly="1"/>
-                </group>
-            </xpath>
-            <xpath expr="//header" position="inside">
-                <button name="action_validate_request" type="object"
-                        string="Check or Validate" class="btn-primary"/>
-            </xpath>
+            <form string="Maintenance Request">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="equipment_id"/>
+                        <field name="maintenance_team_id"/>
+                        <field name="sale_order_id"/>
+                        <field name="request_date"/>
+                        <field name="close_date"/>
+                        <field name="stage_id"/>
+                        <field name="category_id"/>
+                        <field name="user_id"/>
+                        <field name="owner_user_id" invisible="1"/>  <!-- Thêm vào đây -->
+                        <field name="stock_status" readonly="1"/> <!-- Nếu muốn hiển thị trạng thái tồn kho -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_maintenance_request_tree" model="ir.ui.view">
+        <field name="name">maintenance.request.tree</field>
+        <field name="model">maintenance.request</field>
+        <field name="arch" type="xml">
+            <tree string="Maintenance Requests">
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="stage_id"/>
+                <field name="user_id"/>
+                <field name="owner_user_id"/> <!-- Thêm vào tree view nếu cần -->
+                <field name="stock_status"/>
+            </tree>
         </field>
     </record>
 </odoo>

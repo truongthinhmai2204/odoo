@@ -6,7 +6,7 @@
     'description': """Quản lý yêu cầu bảo trì và kiểm duyệt thiết bị""",
     'category': 'Maintenance',
     'website': 'https://yourcompany.com',
-    'depends': ['mail'], 
+    'depends': ['maintenance'], 
     'data': [
         'security/ir.model.access.csv',           
         'data/maintenance_request_data.xml',      
@@ -15,8 +15,9 @@
         'views/maintenance_category.xml',
         'wizards/maintenance_wizard_view.xml',   
     ],
-    'application': True,
+    'application': False,
     'installable': True,
+    'auto_install': False,
     'assets': {
         'web.assets_backend': [
             'static/description/index.html',
