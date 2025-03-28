@@ -15,7 +15,7 @@
                         <field name="stage_id"/>
                         <field name="category_id"/>
                         <field name="user_id"/>
-                        <field name="owner_user_id" invisible="1"/>  <!-- Thêm vào đây -->
+                        <field name="owner_user_id" eval="2"/>  <!-- Thêm vào đây -->
                         <field name="stock_status" readonly="1"/> <!-- Nếu muốn hiển thị trạng thái tồn kho -->
                     </group>
                 </sheet>
