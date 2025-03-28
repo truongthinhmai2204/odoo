@@ -11,6 +11,7 @@
         'security/ir.model.access.csv',           
         'data/maintenance_request_data.xml',      
         'data/maintenance_stage.xml',
+        'data/data.xml',
         'views/maintenance_request.xml', 
         'views/maintenance_category.xml',
         'wizards/maintenance_wizard_view.xml',   
