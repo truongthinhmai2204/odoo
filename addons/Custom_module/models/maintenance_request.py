@@ -1,9 +1,7 @@
 from odoo import models, fields, api
 
 class MaintenanceRequest(models.Model):
-    _name = "maintenance.request"
-    _description = "Maintenance Request"
-    _inherit = 'maintenance.request'
+    _inherit = 'maintenance.request'  # Kế thừa thay vì định nghĩa lại _name
 
     name = fields.Char(string="Request Name", required=True)
     equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
@@ -12,9 +10,9 @@ class MaintenanceRequest(models.Model):
     request_date = fields.Date(string="Request Date", default=fields.Date.today)
     close_date = fields.Date(string="Close Date")
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
-    category_id = fields.Many2one('maintenance.category', string="Category",ondelete="cascade")
+    category_id = fields.Many2one('maintenance.category', string="Category", ondelete="cascade")
     user_id = fields.Many2one('res.users', string='Owner', tracking=True)
-    owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda self: self.env.user)   
+    owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda self: self.env.user)
 
     stock_status = fields.Selection([
         ('available', 'Available in Stock'),
@@ -24,16 +22,21 @@ class MaintenanceRequest(models.Model):
     @api.depends('equipment_id')
     def _compute_stock_status(self):
         for record in self:
-            stock_quant = self.env['stock.quant'].search([
-                ('product_id', '=', record.equipment_id.product_id.id),
-                ('quantity', '>', 0)
-            ], limit=1)
-            record.stock_status = 'available' if stock_quant else 'not_available'
+            product_id = record.equipment_id.product_id.id if record.equipment_id and record.equipment_id.product_id else False
+            if product_id:
+                stock_quant = self.env['stock.quant'].search([
+                    ('product_id', '=', product_id),
+                    ('quantity', '>', 0)
+                ], limit=1)
+                record.stock_status = 'available' if stock_quant else 'not_available'
+            else:
+                record.stock_status = 'not_available'
 
     def action_validate_request(self):
         """Hàm xử lý chấp nhận hoặc hủy đơn bảo trì dựa trên tình trạng kho"""
+        confirmed_stage = self.env.ref('maintenance.stage_confirmed', raise_if_not_found=False)
+        cancelled_stage = self.env.ref('maintenance.stage_cancelled', raise_if_not_found=False)
+        
         for record in self:
-            if record.stock_status == 'available':
-                record.stage_id = self.env.ref('maintenance.stage_confirmed').id  # Chuyển trạng thái "Đã duyệt"
-            else:
-                record.stage_id = self.env.ref('maintenance.stage_cancelled').id
+            if confirmed_stage and cancelled_stage:
+                record.stage_id = confirmed_stage.id if record.stock_status == 'available' else cancelled_stage.id

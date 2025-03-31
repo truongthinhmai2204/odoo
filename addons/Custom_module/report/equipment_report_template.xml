@@ -2,23 +2,24 @@
 <odoo>
     <template id="equipment_report_template">
         <t t-call="web.external_layout">
-            <div class="page">
+            <t t-set="doc" t-value="docs"/>
+            <div class="oe_structure">
                 <h2>Equipment Maintenance Report</h2>
                 <table class="table table-condensed">
                     <thead>
-                        <tr>
-                            <th>Equipment</th>
-                            <th>Request Name</th>
-                            <th>Status</th>
-                            <th>Owner</th>
+                        <tr style="background-color: #f2f2f2; text-align: left;">
+                            <th style="padding: 5px;">Equipment</th>
+                            <th style="padding: 5px;">Request Name</th>
+                            <th style="padding: 5px;">Status</th>
+                            <th style="padding: 5px;">Owner</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr t-foreach="docs" t-as="equipment">
-                            <td t-esc="equipment.equipment_id.name or 'N/A'"/>
-                            <td t-esc="equipment.name"/>
-                            <td t-esc="equipment.stage_id.name or 'N/A'"/>
-                            <td t-esc="equipment.owner_user_id.name or 'N/A'"/>
+                        <tr t-foreach="docs" t-as="request">
+                            <td t-esc="request.equipment_id.name or 'N/A'" style="padding: 5px;"/>
+                            <td t-esc="request.name" style="padding: 5px;"/>
+                            <td t-esc="request.stage_id.name or 'N/A'" style="padding: 5px;"/>
+                            <td t-esc="request.owner_user_id.name or 'N/A'" style="padding: 5px;"/>
                         </tr>
                     </tbody>
                 </table>

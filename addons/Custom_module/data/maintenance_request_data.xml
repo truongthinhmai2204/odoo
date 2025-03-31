@@ -8,10 +8,12 @@
     <!-- Gán giai đoạn "Đã duyệt" và "Hủy" -->
     <record id="maintenance_stage_confirmed" model="maintenance.stage">
         <field name="name">Confirmed</field>
+        <field name="sequence">2</field> <!-- Gán thứ tự -->
     </record>
 
     <record id="maintenance_stage_cancelled" model="maintenance.stage">
         <field name="name">Cancelled</field>
+        <field name="sequence">3</field>
     </record>
 
     <!-- Tạo yêu cầu bảo trì mẫu -->
@@ -19,6 +21,7 @@
         <field name="name">Bảo trì hệ thống điện</field>
         <field name="equipment_id" ref="maintenance_equipment_1"/>
         <field name="stage_id" ref="maintenance_stage_confirmed"/> 
-        <field name="owner_user_id" eval="uid"/>  <!-- Tránh lỗi -->
+        <field name="owner_user_id" eval="uid"/> <!-- Đảm bảo có giá trị hợp lệ -->
+        <field name="request_date" eval="time.strftime('%Y-%m-%d')"/> <!-- Đặt ngày hiện tại -->
     </record>
 </odoo>

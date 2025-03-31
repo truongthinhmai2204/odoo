@@ -2,7 +2,7 @@
     'name': 'Request Maintenance',
     'version': '1.0',
     'summary': 'Module quản lý yêu cầu bảo trì',
-    'sequence': 10,
+    'sequence': 100,
     'description': """Quản lý yêu cầu bảo trì và kiểm duyệt thiết bị""",
     'category': 'Maintenance',
     'website': 'https://yourcompany.com',
