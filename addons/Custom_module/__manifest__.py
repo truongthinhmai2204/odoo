@@ -18,7 +18,7 @@
     ],
     'application': True,
     'installable': True,
-    'auto_install': True,
+    'auto_install': False,
     'assets': {
         'web.assets_backend': [
             'static/description/index.html',
