@@ -8,7 +8,8 @@
     'website': 'https://yourcompany.com',
     'depends': ['mail'], 
     'data': [
-        'security/ir.model.access.csv',           
+        'security/ir.model.access.csv',  
+        'security/ir.rule.xml',         
         'data/maintenance_request_data.xml',      
         'data/maintenance_stage.xml',
         'data/data.xml',
