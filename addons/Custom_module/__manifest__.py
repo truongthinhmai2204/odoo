@@ -6,7 +6,7 @@
     'description': """Quản lý yêu cầu bảo trì và kiểm duyệt thiết bị""",
     'category': 'Maintenance',
     'website': 'https://yourcompany.com',
-    'depends': ['maintenance'], 
+    'depends': ['mail'], 
     'data': [
         'security/ir.model.access.csv',           
         'data/maintenance_request_data.xml',      
