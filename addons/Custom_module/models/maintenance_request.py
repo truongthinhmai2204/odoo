@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 
 class MaintenanceRequest(models.Model):
-    _inherit = 'maintenance.request'  # Kế thừa thay vì định nghĩa lại _name
+    _inherit = 'maintenance.request'
 
     name = fields.Char(string="Request Name", required=True)
     equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
