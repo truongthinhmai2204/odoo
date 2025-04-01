@@ -12,7 +12,7 @@ class MaintenanceRequest(models.Model):
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
     category_id = fields.Many2one('maintenance.category', string="Category", ondelete="cascade")
     user_id = fields.Many2one('res.users', string='Owner', tracking=True)
-    owner_user_id = fields.Many2one('res.users', string='Created by User')
+    owner_user_id = fields.Many2one('res.users', string='Created by User', ondelete="set null")
 
     stock_status = fields.Selection([
         ('available', 'Available in Stock'),
