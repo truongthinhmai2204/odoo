@@ -2,6 +2,8 @@ from odoo import models, fields, api, SUPERUSER_ID, _
 
 class MaintenanceRequest(models.Model):
     _name = 'maintenance.request'
+    _description = 'Maintenance Request'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(string="Request Name", required=True)
     equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
@@ -12,7 +14,7 @@ class MaintenanceRequest(models.Model):
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
     category_id = fields.Many2one('maintenance.category', string="Category", ondelete="cascade")
     user_id = fields.Many2one('res.users', string='Owner', tracking=True)
-    owner_user_id = fields.Many2one('res.users', string='Created by User')
+    owner_user_id = fields.Many2one('res.users', string='Created by User', tracking=True)
 
     stock_status = fields.Selection([
         ('available', 'Available in Stock'),

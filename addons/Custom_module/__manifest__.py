@@ -6,7 +6,7 @@
     'description': """Quản lý yêu cầu bảo trì và kiểm duyệt thiết bị""",
     'category': 'Maintenance',
     'website': 'https://yourcompany.com',
-    'depends': ['maintenance'], 
+    'depends': ['mail'], 
     'data': [
         'security/ir.model.access.csv',  
         'security/ir.rule.xml',         
@@ -27,4 +27,5 @@
             'static/description/index.html',
         ],
     },
+    'license': 'LGPL-3',
 }
