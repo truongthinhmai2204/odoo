@@ -34,11 +34,17 @@ class MaintenanceRequest(models.Model):
             else:
                 record.stock_status = 'not_available'
 
+    def _track_subtype(self, init_values):
+        self.ensure_one()
+        if init_values.get('owner_user_id') and self.owner_user_id:
+            return self.env.ref('maintenance.mt_mat_assign', raise_if_not_found=False)
+        return super()._track_subtype(init_values)
+
     def action_validate_request(self):
         """Hàm xử lý chấp nhận hoặc hủy đơn bảo trì dựa trên tình trạng kho"""
         confirmed_stage = self.env.ref('maintenance.stage_confirmed', raise_if_not_found=False)
         cancelled_stage = self.env.ref('maintenance.stage_cancelled', raise_if_not_found=False)
-        
+
         for record in self:
             if confirmed_stage and cancelled_stage:
                 record.stage_id = confirmed_stage.id if record.stock_status == 'available' else cancelled_stage.id
