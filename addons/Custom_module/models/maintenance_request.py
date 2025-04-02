@@ -1,7 +1,7 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, SUPERUSER_ID, _
 
 class MaintenanceRequest(models.Model):
-    _inherit = 'maintenance.request'
+    _name = 'maintenance.request'
 
     name = fields.Char(string="Request Name", required=True)
     equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
