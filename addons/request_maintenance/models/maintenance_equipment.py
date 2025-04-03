@@ -8,3 +8,4 @@ class MaintenanceEquipment(models.Model):
     description = fields.Text(string="Description")
     user_id = fields.Many2one('res.users', string='Owner', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
+    employee_id = fields.Many2one('hr.employee', string="Employee")
