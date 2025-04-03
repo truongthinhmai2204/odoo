@@ -36,7 +36,8 @@ class MaintenanceRequest(models.Model):
 
     def _track_subtype(self, init_values):
         self.ensure_one()
-        if init_values.get('owner_user_id') and self.owner_user_id:
+        print("init_values:", init_values)  # Kiểm tra giá trị truyền vào
+        if 'owner_user_id' in init_values and self.owner_user_id:
             return self.env.ref('maintenance.mt_mat_assign', raise_if_not_found=False)
         return super()._track_subtype(init_values)
 
