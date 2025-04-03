@@ -10,3 +10,5 @@ class MaintenanceCategory(models.Model):
         'category_id',  
         string="Requests"
     )
+    user_id = fields.Many2one('res.users', string='Owner', tracking=True)
+    owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
