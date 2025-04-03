@@ -1,9 +1,17 @@
-from odoo import models, fields, api, SUPERUSER_ID, _
+import ast
+
+from datetime import date, datetime, timedelta
+
+from odoo import api, fields, models, SUPERUSER_ID, _
+from odoo.exceptions import UserError
+from odoo.osv import expression
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 
 class MaintenanceRequest(models.Model):
     _name = 'maintenance.request'
     _description = 'Maintenance Request'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread.cc', 'mail.activity.mixin']
+    _check_company_auto = True
 
     name = fields.Char(string="Request Name", required=True)
     equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
@@ -19,7 +27,7 @@ class MaintenanceRequest(models.Model):
     device_id = fields.Many2one('stock.picking', string="Thiết bị", inverse_name='order_id')
     device_ids = fields.One2many('stock.move', 'order_id')
     user_id = fields.Many2one('res.users', string='Owner', tracking=True)
-    owner_user_id = fields.Many2one('res.users', string='Created by User', tracking=True)
+    owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
 
     stock_status = fields.Selection([
         ('available', 'Available in Stock'),
