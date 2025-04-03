@@ -8,11 +8,15 @@ class MaintenanceRequest(models.Model):
     name = fields.Char(string="Request Name", required=True)
     equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
     maintenance_team_id = fields.Many2one('maintenance.team', string="Maintenance Team", ondelete="set null")
-    sale_order_id = fields.Many2one('sale.order', string="Đơn hàng liên kết")
     request_date = fields.Date(string="Request Date", default=fields.Date.today)
     close_date = fields.Date(string="Close Date")
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
     category_id = fields.Many2one('maintenance.category', string="Category", ondelete="cascade")
+    alias_id = fields.Many2one(
+        'mail.alias', 'Alias', ondelete='restrict', required=True,
+        help="Email alias for this equipment category. New emails will automatically "
+        "create a new equipment under this category.")
+    device_id = fields.Many2one('stock.picking', string="Thiết bị", inverse_name='order_id')
     user_id = fields.Many2one('res.users', string='Owner', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', tracking=True)
 
