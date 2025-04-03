@@ -4,7 +4,7 @@
     'summary': 'Module quản lý yêu cầu bảo trì',
     'sequence': 100,
     'description': """Quản lý yêu cầu bảo trì và kiểm duyệt thiết bị""",
-    'category': 'Maintenance',
+    'category': 'Maintenance/Manfacturing',
     'website': 'https://yourcompany.com',
     'depends': ['mail'], 
     'data': [
