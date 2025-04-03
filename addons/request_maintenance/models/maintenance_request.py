@@ -17,6 +17,7 @@ class MaintenanceRequest(models.Model):
         help="Email alias for this equipment category. New emails will automatically "
         "create a new equipment under this category.")
     device_id = fields.Many2one('stock.picking', string="Thiết bị", inverse_name='order_id')
+    device_ids = fields.One2many('stock.move', 'order_id')
     user_id = fields.Many2one('res.users', string='Owner', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', tracking=True)
 
