@@ -14,3 +14,5 @@ class MaintenanceCategory(models.Model):
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
     employee_id = fields.Many2one('hr.employee', string="Employee")
     category_id = fields.Many2one('maintenance.category', string="Category", ondelete="cascade")
+    order_id = fields.Many2one('sale.order', string="Order")
+
