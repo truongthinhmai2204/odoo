@@ -11,7 +11,6 @@ class MaintenanceRequest(models.Model):
     _name = 'maintenance.request'
     _description = 'Maintenance Request'
     _inherit = ['mail.thread.cc', 'mail.activity.mixin']
-    _order = 'sequence, id'
     _check_company_auto = True
 
     name = fields.Char(string="Request Name", required=True)
@@ -28,6 +27,7 @@ class MaintenanceRequest(models.Model):
     device_ids = fields.One2many('stock.move', 'order_id')
     user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
+    order_id = fields.Many2one('sale.order', string="Order")
     employee_id = fields.Many2one('hr.employee', string="Employee")
 
 
@@ -51,7 +51,7 @@ class MaintenanceRequest(models.Model):
 
     def _track_subtype(self, init_values):
         self.ensure_one()
-        print("init_values:", init_values)  # Kiểm tra giá trị truyền vào
+        print("init_values:", init_values) 
         if 'owner_user_id' in init_values and self.owner_user_id:
             return self.env.ref('maintenance.mt_mat_assign', raise_if_not_found=False)
         return super()._track_subtype(init_values)
