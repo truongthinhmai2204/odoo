@@ -7,7 +7,7 @@ class MaintenanceEquipment(models.Model):
 
     name = fields.Char(string="Equipment Name", required=True)
     description = fields.Text(string="Description")
-    user_id = fields.Many2one('res.users', string='Owner', tracking=True)
+    user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
     alias_id = fields.Many2one(
         'mail.alias', 'Alias', ondelete='restrict', required=True,

@@ -7,7 +7,7 @@ class MaintenanceStage(models.Model):
     
     name = fields.Char(string="Stage Name", required=True)
     sequence = fields.Integer(string="Sequence", default=10)
-    user_id = fields.Many2one('res.users', string='Owner', tracking=True)
+    user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
     alias_id = fields.Many2one(
         'mail.alias', 'Alias', ondelete='restrict', required=True,
