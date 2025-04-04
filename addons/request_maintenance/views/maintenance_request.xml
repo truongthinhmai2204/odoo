@@ -10,6 +10,7 @@
                         <field name="equipment_id"/>
                         <field name="maintenance_team_id"/>
                         <field name="sale_order_id"/>
+                        <field name="order_id"/>
                         <field name="request_date"/>
                         <field name="close_date"/>
                         <field name="stage_id" attrs="{'readonly': [('user_id', '!=', uid)]}"/>
@@ -30,6 +31,7 @@
             <tree string="Maintenance Requests">
                 <field name="name"/>
                 <field name="equipment_id"/>
+                <field name="order_id"/>
                 <field name="stage_id"/>
                 <field name="user_id"/>
                 <field name="owner_user_id"/>
