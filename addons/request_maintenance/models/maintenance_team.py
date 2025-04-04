@@ -12,7 +12,7 @@ class MaintenanceTeam(models.Model):
         'mail.alias', 'Alias', ondelete='restrict', required=True,
         help="Email alias for this equipment category. New emails will automatically "
         "create a new equipment under this category.")
-    device_id = fields.Many2one('stock.picking', string="Thiết bị", inverse_name='order_id')
+    device_id = fields.Many2one('stock.picking', string="Equipment")
     device_ids = fields.One2many('stock.move', 'order_id')
     employee_id = fields.Many2one('hr.employee', string="Employee")
     category_id = fields.Many2one('maintenance.category', string="Category", ondelete="cascade")
