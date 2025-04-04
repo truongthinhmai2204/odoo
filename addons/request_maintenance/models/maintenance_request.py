@@ -24,7 +24,7 @@ class MaintenanceRequest(models.Model):
         'mail.alias', 'Alias', ondelete='restrict', required=True,
         help="Email alias for this equipment category. New emails will automatically "
         "create a new equipment under this category.")
-    device_ids = fields.One2many('stock.move', 'order_id')
+    device_ids = fields.One2many('stock.move', 'maintenance_request_id', string="Devices")
     user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
     order_id = fields.Many2one('sale.order', string="Order")
