@@ -15,6 +15,7 @@ class MaintenanceTeam(models.Model):
     device_ids = fields.One2many('stock.move', 'maintenance_request_id', string="Devices")
     employee_id = fields.Many2one('hr.employee', string="Employee")
     category_id = fields.Many2one('maintenance.category', string="Category", ondelete="cascade")
-    order_id = fields.Many2one('sale.order', string="Order")
+    maintenance_request_id = fields.Many2one('maintenance.request', string="Maintenance Request")
+
 
 

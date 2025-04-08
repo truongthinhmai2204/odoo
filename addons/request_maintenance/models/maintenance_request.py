@@ -27,7 +27,7 @@ class MaintenanceRequest(models.Model):
     device_ids = fields.One2many('stock.move', 'maintenance_request_id', string="Devices")
     user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
-    order_id = fields.Many2one('sale.order', string="Order")
+    maintenance_request_id = fields.Many2one('maintenance.request', string="Maintenance Request")
     employee_id = fields.Many2one('hr.employee', string="Employee")
 
 
@@ -64,3 +64,4 @@ class MaintenanceRequest(models.Model):
         for record in self:
             if confirmed_stage and cancelled_stage:
                 record.stage_id = confirmed_stage.id if record.stock_status == 'available' else cancelled_stage.id
+                
