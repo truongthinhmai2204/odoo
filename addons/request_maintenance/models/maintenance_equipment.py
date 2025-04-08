@@ -14,7 +14,7 @@ class MaintenanceEquipment(models.Model):
         "create a new equipment under this category.")
     device_ids = fields.One2many('stock.move', 'maintenance_request_id', string="Devices")
     employee_id = fields.Many2one('hr.employee', string="Employee")
-    category_id = fields.Many2one('maintenance.category', string="Category", ondelete="cascade")
+    category_id = fields.Many2one('maintenance.category', string="Category", ondelete="set null")
     maintenance_request_id = fields.Many2one('maintenance.request', string="Maintenance Request")
     product_id = fields.Many2one('product.product', string='Related Product')
 
