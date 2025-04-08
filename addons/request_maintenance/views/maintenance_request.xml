@@ -17,6 +17,7 @@
                         <field name="category_id"/>
                         <field name="user_id"/>
                         <field name="owner_user_id"/>
+                        <field name="product_id"/>
                         <field name="stock_status" readonly="1"/> 
                     </group>
                 </sheet>
@@ -35,6 +36,7 @@
                 <field name="stage_id"/>
                 <field name="user_id"/>
                 <field name="owner_user_id"/>
+                <field name="product_id"/>
                 <field name="stock_status"/>
             </tree>
         </field>

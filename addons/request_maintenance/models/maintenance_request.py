@@ -29,7 +29,7 @@ class MaintenanceRequest(models.Model):
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
     maintenance_request_id = fields.Many2one('maintenance.request', string="Maintenance Request")
     employee_id = fields.Many2one('hr.employee', string="Employee")
-
+    product_id = fields.Many2one('product.product', string='Related Product')
 
     stock_status = fields.Selection([
         ('available', 'Available in Stock'),
@@ -64,4 +64,3 @@ class MaintenanceRequest(models.Model):
         for record in self:
             if confirmed_stage and cancelled_stage:
                 record.stage_id = confirmed_stage.id if record.stock_status == 'available' else cancelled_stage.id
-                
