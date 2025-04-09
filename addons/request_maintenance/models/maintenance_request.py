@@ -45,6 +45,10 @@ class MaintenanceRequest(models.Model):
             else:
                 record.stock_status = 'not_available'
 
+    @api.onchange('category_id')
+    def _onchange_category_id(self):
+        self.technician_user_id = self.category_id.technician_user_id
+
     def _track_subtype(self, init_values):
         self.ensure_one()
         print("init_values:", init_values) 
