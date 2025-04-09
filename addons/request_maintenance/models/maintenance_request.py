@@ -19,7 +19,7 @@ class MaintenanceRequest(models.Model):
     request_date = fields.Date(string="Request Date", default=fields.Date.today)
     close_date = fields.Date(string="Close Date")
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
-    category_id = fields.Many2one('maintenance.category', string="Category", ondelete="cascade")
+    category_id = fields.Many2one('maintenance.category', string="Category", ondelete="set null")
     device_ids = fields.One2many('stock.move', 'maintenance_request_id', string="Devices")
     user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
