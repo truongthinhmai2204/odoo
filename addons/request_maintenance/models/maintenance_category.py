@@ -1,7 +1,7 @@
 from odoo import models, fields
 
-class MaintenanceCategory(models.Model):
-    _name = "maintenance.category"
+class MaintenanceEquipmentCategory(models.Model):
+    _name = "maintenance.equipment.category"
     _inherit = ['mail.alias.mixin', 'mail.thread']
     _description = "Maintenance Category"
 
