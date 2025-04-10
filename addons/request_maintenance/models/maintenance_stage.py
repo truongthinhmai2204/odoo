@@ -12,6 +12,4 @@ class MaintenanceStage(models.Model):
     employee_id = fields.Many2one('hr.employee', string="Employee")
     maintenance_request_id = fields.Many2one('maintenance.request', string="Maintenance Request")
     product_id = fields.Many2one('product.product', string='Related Product')
-    
-
 
