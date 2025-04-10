@@ -1,6 +1,4 @@
-import ast
 
-from datetime import date, datetime, timedelta
 
 from odoo import api, fields, models, SUPERUSER_ID, _
 from odoo.exceptions import UserError
@@ -64,4 +62,4 @@ class MaintenanceRequest(models.Model):
         for record in self:
             if confirmed_stage and cancelled_stage:
                 record.stage_id = confirmed_stage.id if record.stock_status == 'available' else cancelled_stage.id
-                
+
