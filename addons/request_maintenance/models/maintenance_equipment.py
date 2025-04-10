@@ -15,5 +15,3 @@ class MaintenanceEquipment(models.Model):
     maintenance_request_id = fields.Many2one('maintenance.request', string="Maintenance Request")
     product_id = fields.Many2one('product.product', string='Related Product')
 
-
-

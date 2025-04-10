@@ -64,3 +64,4 @@ class MaintenanceRequest(models.Model):
         for record in self:
             if confirmed_stage and cancelled_stage:
                 record.stage_id = confirmed_stage.id if record.stock_status == 'available' else cancelled_stage.id
+                
