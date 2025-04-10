@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <!-- Group: Equipment Manager -->
+    <record id="group_equipment_manager" model="res.groups" noupdate="1" forcecreate="0">
+        <field name="name">Equipment Manager</field>
+        <field name="category_id" ref="base.module_category_manufacturing_maintenance"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">The user will be able to manage equipments.</field>
+    </record>
+
+    <record id="model_request_maintenance" model="ir.model">
+        <field name="name">request.maintenance</field>
+        <field name="model">request.maintenance</field>
+        <field name="state">manual</field>
+    </record>
+
     <data noupdate="1">
-
-        <!-- Group: Equipment Manager -->
-        <record id="group_equipment_manager" model="res.groups">
-            <field name="name">Equipment Manager</field>
-            <field name="category_id" ref="base.module_category_manufacturing_maintenance"/>
-            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
-            <field name="comment">The user will be able to manage equipments.</field>
-        </record>
-
-        <record id="model_request_maintenance" model="ir.model">
-            <field name="name">request.maintenance</field>
-            <field name="model">request.maintenance</field>
-            <field name="state">manual</field>
-        </record>
 
         <!-- Rules for maintenance_request -->
         <record id="equipment_request_rule_user" model="ir.rule">
@@ -71,4 +72,5 @@
         </record>
 
     </data>
+
 </odoo>
