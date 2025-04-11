@@ -10,12 +10,6 @@
             <field name="comment">The user will be able to manage equipments.</field>
         </record>
 
-        <record id="model_request_maintenance" model="ir.model" replace="1">
-            <field name="name">request.maintenance</field>
-            <field name="model">request.maintenance</field>
-            <field name="state">manual</field>
-        </record>
-
         <!-- Rules for maintenance_request -->
         <record id="equipment_request_rule_user" model="ir.rule" replace="1">
             <field name="name">Users are allowed to access their own maintenance requests</field>
