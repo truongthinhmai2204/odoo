@@ -24,6 +24,8 @@ class MaintenanceRequest(models.Model):
     maintenance_request_id = fields.Many2one('maintenance.request', string="Maintenance Request")
     employee_id = fields.Many2one('hr.employee', string="Employee")
     product_id = fields.Many2one('product.product', string='Related Product')
+    legend_normal = fields.Char(string="Kanban Tooltip", default="Default text")
+    legend_done = fields.Char(string="Done Tooltip", default="Completed")
 
     stock_status = fields.Selection([
         ('available', 'Available in Stock'),
