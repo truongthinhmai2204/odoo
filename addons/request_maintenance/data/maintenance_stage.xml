@@ -12,7 +12,6 @@
     <record id="maintenance_stage_done" model="maintenance.stage">
         <field name="name">Done</field>
         <field name="sequence">3</field>
-        <field name="legend_done">Request completed</field>
     </record>
     
 </odoo>
