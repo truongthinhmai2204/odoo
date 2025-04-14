@@ -12,4 +12,7 @@ class MaintenanceStage(models.Model):
     employee_id = fields.Many2one('hr.employee', string="Employee")
     maintenance_request_id = fields.Many2one('maintenance.request', string="Maintenance Request")
     product_id = fields.Many2one('product.product', string='Related Product')
+    legend_normal = fields.Char(string="Kanban Tooltip", default="Default text")
+    legend_done = fields.Char(string="Done Tooltip", default="Completed")
+
 
