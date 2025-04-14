@@ -1,17 +1,20 @@
 <odoo>
-    <record id="maintenance_stage_new" model="maintenance.stage">
-        <field name="name">New</field>
-        <field name="sequence">1</field>
-    </record>
+    <data noupdate="1">
 
-    <record id="maintenance_stage_in_progress" model="maintenance.stage">
-        <field name="name">In Progress</field>
-        <field name="sequence">2</field>
-    </record>
+        <record id="maintenance_stage_new" model="maintenance.stage">
+            <field name="name">New</field>
+            <field name="sequence">1</field>
+        </record>
 
-    <record id="maintenance_stage_done" model="maintenance.stage">
-        <field name="name">Done</field>
-        <field name="sequence">3</field>
-    </record>
-    
+        <record id="maintenance_stage_in_progress" model="maintenance.stage">
+            <field name="name">In Progress</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="maintenance_stage_done" model="maintenance.stage">
+            <field name="name">Done</field>
+            <field name="sequence">3</field>
+        </record>
+
+    </data>
 </odoo>
