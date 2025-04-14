@@ -1,6 +1,9 @@
 <odoo>
     <data noupdate="1">
 
+        <!-- Menu Root -->
+        <menuitem id="menu_maintenance_root" name="Maintenance" sequence="10"/>
+
         <!-- Maintenance Category Views -->
         <record id="view_maintenance_category_form" model="ir.ui.view">
             <field name="name">maintenance.category.form</field>
@@ -46,7 +49,7 @@
         </record>
 
         <menuitem id="menu_maintenance_category" name="Maintenance Categories"
-                  parent="maintenance.menu_maintenance_root"
+                  parent="menu_maintenance_root"
                   action="action_maintenance_category"/>
 
     </data>
