@@ -6,8 +6,8 @@
 
         <!-- Maintenance Category Views -->
         <record id="view_maintenance_category_form" model="ir.ui.view">
-            <field name="name">maintenance.category.form</field>
-            <field name="model">maintenance.category</field>
+            <field name="name">maintenance.equipment.category.form</field>
+            <field name="model">maintenance.equipment.category</field>
             <field name="arch" type="xml">
                 <form string="Maintenance Category">
                     <sheet>
@@ -30,8 +30,8 @@
         </record>
 
         <record id="view_maintenance_category_tree" model="ir.ui.view">
-            <field name="name">maintenance.category.tree</field>
-            <field name="model">maintenance.category</field>
+            <field name="name">maintenance.equipment.category.tree</field>
+            <field name="model">maintenance.equipment.category</field> <!-- ✅ sửa chỗ này -->
             <field name="arch" type="xml">
                 <tree string="Maintenance Categories">
                     <field name="name"/>
@@ -41,7 +41,7 @@
 
         <record id="action_maintenance_category" model="ir.actions.act_window">
             <field name="name">Maintenance Categories</field>
-            <field name="res_model">maintenance.category</field>
+            <field name="res_model">maintenance.equipment.category</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p>Create and manage maintenance categories here.</p>
