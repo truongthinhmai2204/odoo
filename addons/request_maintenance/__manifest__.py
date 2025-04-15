@@ -8,10 +8,10 @@
     'website': 'https://yourcompany.com',
     'depends': ['mail', 'maintenance'], 
     'data': [
-        'data/maintenance_request_data.xml',      
-        'data/maintenance_stage.xml',
         'security/ir.rule.xml',         
         'security/ir.model.access.csv',  
+        'data/maintenance_request_data.xml',      
+        'data/maintenance_stage.xml',
         'views/maintenance_request.xml', 
         'views/maintenance_category.xml',
     ],
