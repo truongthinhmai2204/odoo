@@ -10,10 +10,10 @@
     'data': [
         'data/maintenance_request_data.xml',      
         'data/maintenance_stage.xml',
-        'views/maintenance_request.xml', 
-        'views/maintenance_category.xml',
         'security/ir.rule.xml',         
         'security/ir.model.access.csv',  
+        'views/maintenance_request.xml', 
+        'views/maintenance_category.xml',
     ],
     'application': True,
     'installable': True,
