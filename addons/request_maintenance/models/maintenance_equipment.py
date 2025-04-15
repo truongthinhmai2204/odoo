@@ -11,3 +11,5 @@ class MaintenanceEquipment(models.Model):
     technician_user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
     product_id = fields.Many2one('product.product', string='Related Product')
+    employee_id = fields.Many2one('hr.employee', string="Employee")
+
