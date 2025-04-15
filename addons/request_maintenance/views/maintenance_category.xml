@@ -31,7 +31,7 @@
 
         <record id="view_maintenance_category_tree" model="ir.ui.view">
             <field name="name">maintenance.equipment.category.tree</field>
-            <field name="model">maintenance.equipment.category</field> <!-- ✅ sửa chỗ này -->
+            <field name="model">maintenance.equipment.category</field>
             <field name="arch" type="xml">
                 <tree string="Maintenance Categories">
                     <field name="name"/>

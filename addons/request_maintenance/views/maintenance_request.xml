@@ -1,7 +1,6 @@
 <odoo>
     <data noupdate="1">
 
-        <!-- MENU CHA -->
         <menuitem id="menu_maintenance_root" name="Maintenance" sequence="10"/>
 
         <!-- FORM VIEW -->
