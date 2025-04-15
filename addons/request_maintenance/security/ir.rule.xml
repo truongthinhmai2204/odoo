@@ -9,7 +9,7 @@
         <field name="comment">The user will be able to manage equipments.</field>
     </record>
     
-    <data noupdate="1">
+        <data noupdate="1">
         <!-- Rules for maintenance_request -->
         <record id="equipment_request_rule_user" model="ir.rule" replace="1">
             <field name="name">Users are allowed to access their own maintenance requests</field>
@@ -64,5 +64,5 @@
             <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
         </record>
 
-    </data>
+        </data>
 </odoo>
