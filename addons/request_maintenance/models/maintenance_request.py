@@ -1,5 +1,3 @@
-
-
 from odoo import api, fields, models, SUPERUSER_ID, _
 from odoo.exceptions import UserError
 from odoo.osv import expression
@@ -21,10 +19,10 @@ class MaintenanceRequest(models.Model):
     device_ids = fields.One2many('stock.move', 'maintenance_request_id', string="Devices")
     user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
-    maintenance_request_id = fields.Many2one('maintenance.request', string="Maintenance Request")
     employee_id = fields.Many2one('hr.employee', string="Employee")
     product_id = fields.Many2one('product.product', string='Related Product')
-    
+    technician_user_id = fields.Many2one('res.users', string='Technician')
+
     stock_status = fields.Selection([
         ('available', 'Available in Stock'),
         ('not_available', 'Not Available in Stock')
@@ -49,7 +47,6 @@ class MaintenanceRequest(models.Model):
 
     def _track_subtype(self, init_values):
         self.ensure_one()
-        print("init_values:", init_values) 
         if 'owner_user_id' in init_values and self.owner_user_id:
             return self.env.ref('maintenance.mt_mat_assign', raise_if_not_found=False)
         return super()._track_subtype(init_values)
@@ -59,7 +56,8 @@ class MaintenanceRequest(models.Model):
         confirmed_stage = self.env.ref('maintenance.stage_confirmed', raise_if_not_found=False)
         cancelled_stage = self.env.ref('maintenance.stage_cancelled', raise_if_not_found=False)
 
-        for record in self:
-            if confirmed_stage and cancelled_stage:
-                record.stage_id = confirmed_stage.id if record.stock_status == 'available' else cancelled_stage.id
+        if not confirmed_stage or not cancelled_stage:
+            raise UserError(_("Missing maintenance stage references. Please check XML data."))
 
+        for record in self:
+            record.stage_id = confirmed_stage.id if record.stock_status == 'available' else cancelled_stage.id
