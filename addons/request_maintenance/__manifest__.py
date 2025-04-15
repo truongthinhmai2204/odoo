@@ -1,5 +1,5 @@
 {
-    'name': 'Request Maintenance',
+    'name': 'Maintenance Request',
     'version': '1.0',
     'summary': 'Module quản lý yêu cầu bảo trì',
     'sequence': 100,
