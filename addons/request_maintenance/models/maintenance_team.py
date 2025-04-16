@@ -9,4 +9,5 @@ class MaintenanceTeam(models.Model):
     user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
     employee_id = fields.Many2one('hr.employee', string="Employee")
+    company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company, index=True)
 

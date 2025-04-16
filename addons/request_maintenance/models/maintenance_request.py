@@ -17,6 +17,7 @@ class MaintenanceRequest(models.Model):
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
     category_id = fields.Many2one('maintenance.equipment.category', string="Equipment Category", ondelete="set null")
     device_ids = fields.One2many('stock.move', 'maintenance_request_id', string="Devices")
+    company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company, index=True)
     user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
     employee_id = fields.Many2one('hr.employee', string="Employee")
