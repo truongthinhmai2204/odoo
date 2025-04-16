@@ -1,56 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <data noupdate="1">
+    <menuitem id="menu_maintenance_root" name="Maintenance" sequence="10"/>
 
-        <menuitem id="menu_maintenance_root" name="Maintenance" sequence="10"/>
+    <record id="view_maintenance_category_form" model="ir.ui.view">
+        <field name="name">maintenance.equipment.category.form</field>
+        <field name="model">maintenance.equipment.category</field>
+        <field name="arch" type="xml">
+            <form string="Maintenance Category">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Requests">
+                            <field name="request_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="category_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <record id="view_maintenance_category_form" model="ir.ui.view">
-            <field name="name">maintenance.equipment.category.form</field>
-            <field name="model">maintenance.equipment.category</field>
-            <field name="arch" type="xml">
-                <form string="Maintenance Category">
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                        </group>
-                        <notebook>
-                            <page string="Requests">
-                                <field name="request_ids">
-                                    <tree editable="bottom">
-                                        <field name="name"/>
-                                        <field name="category_id"/>
-                                    </tree>
-                                </field>
-                            </page>
-                        </notebook>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+    <record id="view_maintenance_category_tree" model="ir.ui.view">
+        <field name="name">maintenance.equipment.category.tree</field>
+        <field name="model">maintenance.equipment.category</field>
+        <field name="arch" type="xml">
+            <tree string="Maintenance Categories">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
 
-        <record id="view_maintenance_category_tree" model="ir.ui.view">
-            <field name="name">maintenance.equipment.category.tree</field>
-            <field name="model">maintenance.equipment.category</field>
-            <field name="arch" type="xml">
-                <tree string="Maintenance Categories">
-                    <field name="name"/>
-                </tree>
-            </field>
-        </record>
+    <record id="action_maintenance_category" model="ir.actions.act_window">
+        <field name="name">Maintenance Categories</field>
+        <field name="res_model">maintenance.equipment.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Create and manage maintenance categories here.</p>
+        </field>
+    </record>
 
-        <record id="action_maintenance_category" model="ir.actions.act_window">
-            <field name="name">Maintenance Categories</field>
-            <field name="res_model">maintenance.equipment.category</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p>Create and manage maintenance categories here.</p>
-            </field>
-        </record>
-
-        <menuitem id="menu_maintenance_category" name="Maintenance Categories"
-                    parent="menu_maintenance_root"
-                    action="action_maintenance_category"/>s
-    </data>
+    <menuitem id="menu_maintenance_category" name="Maintenance Categories"
+                parent="menu_maintenance_root"
+                action="action_maintenance_category"/>
 
 </odoo>
