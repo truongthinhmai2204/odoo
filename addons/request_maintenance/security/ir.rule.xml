@@ -5,7 +5,7 @@
         <!-- Group: Equipment Manager -->
         <record id="group_equipment_manager" model="res.groups" replace="1">
             <field name="name">Equipment Manager</field>
-            <field name="category_id" ref="base.module_category_manufacturing_maintenance"/>
+            <field name="category_id" ref="base.module_category_inventory"/>
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
             <field name="comment">The user will be able to manage equipments.</field>
         </record>
