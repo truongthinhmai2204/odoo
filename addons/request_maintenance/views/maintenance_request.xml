@@ -4,7 +4,7 @@
 
         <menuitem id="menu_maintenance_root" name="Maintenance" sequence="10"/>
 
-        <!-- FORM VIEW -->
+        
         <record id="view_maintenance_request_form" model="ir.ui.view">
             <field name="name">maintenance.request.form</field>
             <field name="model">maintenance.request</field>
@@ -29,7 +29,7 @@
             </field>
         </record>
 
-        <!-- TREE VIEW -->
+        
         <record id="view_maintenance_request_tree" model="ir.ui.view">
             <field name="name">maintenance.request.tree</field>
             <field name="model">maintenance.request</field>
@@ -46,7 +46,7 @@
             </field>
         </record>
 
-        <!-- ACTION -->
+        
         <record id="action_maintenance_request" model="ir.actions.act_window">
             <field name="name">Maintenance Requests</field>
             <field name="res_model">maintenance.request</field>
@@ -59,7 +59,6 @@
             </field>
         </record>
 
-        <!-- MENU -->
         <menuitem id="menu_maintenance_request"
                   name="Maintenance Requests"
                   parent="menu_maintenance_root"
