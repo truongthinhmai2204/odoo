@@ -1,8 +1,0 @@
-msgid "Maintenance Request"
-msgstr "Yêu cầu bảo trì"
-
-msgid "Confirm"
-msgstr "Xác nhận"
-
-msgid "Reject"
-msgstr "Từ chối"
