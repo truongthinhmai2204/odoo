@@ -6,7 +6,7 @@
         <!-- Nhóm quản lý thiết bị -->
         <record id="group_equipment_manager" model="res.groups">
             <field name="name">Equipment Manager</field>
-            <field name="category_id" ref="base.module_category_inventory"/>
+            <field name="groups" eval="[(4, ref('group_equipment_manager'))]"/>
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
             <field name="comment">The user will be able to manage equipments.</field>
         </record>
