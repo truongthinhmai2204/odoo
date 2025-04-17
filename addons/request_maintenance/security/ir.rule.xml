@@ -8,7 +8,7 @@
             <field name="name">Equipment Manager</field>
             <field name="category_id" ref="base.module_category_inventory"/>
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
-            <field name="groups" eval="[(4, ref('maintenance_request.group_equipment_manager'))]"/>
+            <field name="groups" eval="[(4, ref('maintenance.group_equipment_manager'))]"/>
             <field name="comment">The user will be able to manage equipments.</field>
         </record>
 
