@@ -7,7 +7,7 @@
     'category': 'Manufacturing/Maintenance',
     'description': """
         Track equipments and maintenance requests""",
-    'depends': ['mail'],
+    'depends': ['mail', 'stock'],
     'summary': 'Track equipment and manage maintenance requests',
     'website': 'https://www.odoo.com/app/maintenance',
     'data': [
