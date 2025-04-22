@@ -7,6 +7,7 @@ class MaintenanceTeam(models.Model):
     name = fields.Char(string="Team Name", required=True)
     request_ids = fields.One2many('maintenance.request', 'maintenance_team_id', string="Requests")
     user_id = fields.Many2one('res.users', string='Technician', tracking=True)
+    color = fields.Integer("Color Index", default=0)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
     employee_id = fields.Many2one('hr.employee', string="Employee")
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company, index=True)
