@@ -13,5 +13,5 @@ class MaintenanceEquipmentCategory(models.Model):
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company, index=True)
     device_ids = fields.One2many('stock.move', 'maintenance_request_id', string="Devices")
     employee_id = fields.Many2one('hr.employee', string="Employee")
-    main_request_id = fields.Many2one('maintenance.request', string="Main Maintenance Request")
+    maintenance_request_id = fields.Many2one('maintenance.request', string="Main Maintenance Request")
     product_id = fields.Many2one('product.product', string='Related Product')

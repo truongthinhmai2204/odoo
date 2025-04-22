@@ -12,6 +12,7 @@ class MaintenanceRequest(models.Model):
     name = fields.Char(string="Request Name", required=True)
     equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
     maintenance_team_id = fields.Many2one('maintenance.team', string="Maintenance Team", ondelete="set null")
+    maintenance_request_id = fields.Many2one('maintenance.request', string="Related Maintenance Request")
     request_date = fields.Date(string="Request Date", default=fields.Date.today)
     close_date = fields.Date(string="Close Date")
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
