@@ -6,7 +6,7 @@
     'description': """Quản lý yêu cầu bảo trì và kiểm duyệt thiết bị""",
     'category': 'Manufacturing/Maintenance',
     'website': 'https://yourcompany.com',
-    'depends': ['mail', 'stock'], 
+    'depends': ['mail'], 
     'data': [
         'security/ir.rule.xml',         
         'security/ir.model.access.csv',  
