@@ -16,10 +16,3 @@ class MaintenanceTeam(models.Model):
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
     employee_id = fields.Many2one('hr.employee', string="Employee")
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company, index=True)
-
-    todo_request_ids = fields.One2many('maintenance.request', string="Requests", copy=False, compute='_compute_todo_requests')
-    todo_request_count = fields.Integer(string="Number of Requests", compute='_compute_todo_requests')
-    todo_request_count_date = fields.Integer(string="Number of Requests Scheduled", compute='_compute_todo_requests')
-    todo_request_count_high_priority = fields.Integer(string="Number of Requests in High Priority", compute='_compute_todo_requests')
-    todo_request_count_block = fields.Integer(string="Number of Requests Blocked", compute='_compute_todo_requests')
-    todo_request_count_unscheduled = fields.Integer(string="Number of Requests Unscheduled", compute='_compute_todo_requests')
