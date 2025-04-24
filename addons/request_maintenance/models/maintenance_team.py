@@ -16,3 +16,19 @@ class MaintenanceTeam(models.Model):
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
     employee_id = fields.Many2one('hr.employee', string="Employee")
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company, index=True)
+
+    #dashboard
+    @api.depends('request_ids.stage_id.done')
+    def _compute_todo_requests(self):
+        for team in self:
+            team.todo_request_ids = self.env['maintenance.request'].search([('maintenance_team_id', '=', team.id), ('stage_id.done', '=', False)])
+            team.todo_request_count = len(team.todo_request_ids)
+            team.todo_request_count_date = self.env['maintenance.request'].search_count([('maintenance_team_id', '=', team.id), ('schedule_date', '!=', False)])
+            team.todo_request_count_high_priority = self.env['maintenance.request'].search_count([('maintenance_team_id', '=', team.id), ('priority', '=', '3')])
+            team.todo_request_count_block = self.env['maintenance.request'].search_count([('maintenance_team_id', '=', team.id), ('kanban_state', '=', 'blocked')])
+            team.todo_request_count_unscheduled = self.env['maintenance.request'].search_count([('maintenance_team_id', '=', team.id), ('schedule_date', '=', False)])
+
+    @api.depends('equipment_ids')
+    def _compute_equipment(self):
+        for team in self:
+            team.equipment_count = len(team.equipment_ids)
