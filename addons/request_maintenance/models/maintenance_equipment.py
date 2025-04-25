@@ -11,6 +11,7 @@ class MaintenanceEquipment(models.Model):
     category_id = fields.Many2one('maintenance.equipment.category', string="Equipment Category", ondelete="set null")
     technician_user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
+    color = fields.Integer("Color Index", default=0)
     product_id = fields.Many2one('product.product', string='Related Product')
     employee_id = fields.Many2one('hr.employee', string="Employee")
     maintenance_team_id = fields.Many2one('maintenance.team', string="Maintenance Team")
