@@ -24,7 +24,12 @@ class MaintenanceRequest(models.Model):
     product_id = fields.Many2one('product.product', string='Related Product')
     technician_user_id = fields.Many2one('res.users', string='Technician')
     schedule_date = fields.Date(string="Scheduled Date")
-
+    priority = fields.Selection([
+        ('0', 'Very Low'),
+        ('1', 'Low'),
+        ('2', 'Normal'),
+        ('3', 'High'),
+    ], string="Priority", default='2')
 
     stock_status = fields.Selection([
         ('available', 'Available in Stock'),
