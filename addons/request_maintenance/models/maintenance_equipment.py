@@ -5,7 +5,6 @@ from odoo import api, fields, models, SUPERUSER_ID, _
 class MaintenanceEquipment(models.Model):
     _name = 'maintenance.equipment'
     _description = 'Maintenance Equipment'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(string="Equipment Name", required=True)
     description = fields.Text(string="Description")

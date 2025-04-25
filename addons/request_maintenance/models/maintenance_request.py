@@ -6,7 +6,6 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMA
 class MaintenanceRequest(models.Model):
     _name = 'maintenance.request'
     _description = 'Maintenance Request'
-    _inherit = ['mail.thread.cc', 'mail.activity.mixin']
     _check_company_auto = True
 
     name = fields.Char(string="Request Name", required=True)
