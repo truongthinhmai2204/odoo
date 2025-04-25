@@ -18,8 +18,9 @@ class MaintenanceTeam(models.Model):
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company, index=True)
     request_ids = fields.One2many('maintenance.request', 'maintenance_team_id', copy=False)
     todo_request_ids = fields.One2many(
-        'maintenance.request', 'team_id',
-        string="To-do Requests") 
+    'maintenance.request', 'maintenance_team_id',
+    string="To-do Requests"
+    )
 
     #dashboard
     @api.depends('request_ids.stage_id.done')
