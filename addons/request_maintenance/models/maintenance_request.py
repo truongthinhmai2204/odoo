@@ -31,6 +31,13 @@ class MaintenanceRequest(models.Model):
         ('3', 'High'),
     ], string="Priority", default='2')
 
+    kanban_state = fields.Selection([
+        ('normal', 'In Progress'),
+        ('blocked', 'Blocked'),
+        ('done', 'Ready for next stage')
+    ], string='Kanban State', default='normal')
+
+
     stock_status = fields.Selection([
         ('available', 'Available in Stock'),
         ('not_available', 'Not Available in Stock')
