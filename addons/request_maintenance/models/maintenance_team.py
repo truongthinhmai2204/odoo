@@ -6,7 +6,8 @@ class MaintenanceTeam(models.Model):
     _description = "Maintenance Team"
 
     name = fields.Char(string="Team Name", required=True)
-    request_ids = fields.One2many('maintenance.request', 'maintenance_team_id', string="Requests")
+    request_ids = fields.One2many('maintenance.request', 'maintenance_team_id', copy=False)
+    equipment_ids = fields.One2many('maintenance.equipment', 'maintenance_team_id', copy=False)
     user_id = fields.Many2one('res.users', string='Technician', tracking=True)
     color = fields.Integer("Color Index", default=0)
     active = fields.Boolean(string="Active", default=True)
