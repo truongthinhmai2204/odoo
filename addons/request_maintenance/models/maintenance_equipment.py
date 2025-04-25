@@ -13,6 +13,7 @@ class MaintenanceEquipment(models.Model):
     owner_user_id = fields.Many2one('res.users', string='Created by User', default=lambda s: s.env.uid)
     product_id = fields.Many2one('product.product', string='Related Product')
     employee_id = fields.Many2one('hr.employee', string="Employee")
+    maintenance_team_id = fields.Many2one('maintenance.team', string="Maintenance Team")
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company, index=True)
 
     @api.model
