@@ -4,14 +4,14 @@ from odoo.osv import expression
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 
 class MaintenanceRequest(models.Model):
-    _name = 'maintenance.request'
-    _description = 'Maintenance Request'
+    _name = 'maintenance.request.custom'
+    _description = 'Maintenance Request Custom'
     _check_company_auto = True
 
     name = fields.Char(string="Request Name", required=True)
     equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
     maintenance_team_id = fields.Many2one('maintenance.team', string="Maintenance Team")
-    maintenance_request_id = fields.Many2one('maintenance.request', string="Related Maintenance Request")
+    maintenance_request_id = fields.Many2one('maintenance.request.custom', string="Related Maintenance Request")
     request_date = fields.Date(string="Request Date", default=fields.Date.today)
     close_date = fields.Date(string="Close Date")
     stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
