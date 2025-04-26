@@ -9,13 +9,13 @@ class MaintenanceRequest(models.Model):
     _check_company_auto = True
 
     name = fields.Char(string="Request Name", required=True)
-    equipment_id = fields.Many2one('maintenance.equipment', string="Equipment", ondelete="cascade")
-    maintenance_team_id = fields.Many2one('maintenance.team', string="Maintenance Team")
+    equipment_id = fields.Many2one('maintenance.equipment.custom', string="Equipment", ondelete="cascade")
+    maintenance_team_id = fields.Many2one('maintenance.team.custom', string="Maintenance Team")
     maintenance_request_id = fields.Many2one('maintenance.request.custom', string="Related Maintenance Request")
     request_date = fields.Date(string="Request Date", default=fields.Date.today)
     close_date = fields.Date(string="Close Date")
-    stage_id = fields.Many2one('maintenance.stage', string="Stage", ondelete="set null")
-    category_id = fields.Many2one('maintenance.equipment.category', string="Equipment Category", ondelete="set null")
+    stage_id = fields.Many2one('maintenance.stage.custom', string="Stage", ondelete="set null")
+    category_id = fields.Many2one('maintenance.equipment.category.custom', string="Equipment Category", ondelete="set null")
     device_ids = fields.One2many('stock.move', 'maintenance_request_id', string="Devices")
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company, index=True)
     user_id = fields.Many2one('res.users', string='Technician', tracking=True)
