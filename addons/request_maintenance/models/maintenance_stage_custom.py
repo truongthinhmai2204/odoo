@@ -1,8 +1,8 @@
 from odoo import models, fields
 
-class MaintenanceStage(models.Model):
-    _name = "maintenance.stage"
-    _description = "Maintenance Stage"
+class MaintenanceStageCustom(models.Model):
+    _name = "maintenance.stage.custom"
+    _description = "Maintenance Stage Custom"
     
     name = fields.Char(string="Stage Name", required=True)
     sequence = fields.Integer(string="Sequence", default=10)

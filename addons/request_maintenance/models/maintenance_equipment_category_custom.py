@@ -1,8 +1,8 @@
 from odoo import models, fields
 
-class MaintenanceEquipmentCategory(models.Model):
-    _name = "maintenance.equipment.category"
-    _description = "Maintenance Category"
+class MaintenanceEquipmentCategoryCustom(models.Model):
+    _name = "maintenance.equipment.category.custom"
+    _description = "Maintenance Category Custom"
     _rec_name = "name"
 
     name = fields.Char(string="Category Name", required=True)
@@ -12,6 +12,6 @@ class MaintenanceEquipmentCategory(models.Model):
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company, index=True)
     device_ids = fields.One2many('stock.move', 'maintenance_request_id', string="Devices")
     employee_id = fields.Many2one('hr.employee', string="Employee")
-    maintenance_request_id = fields.Many2one('maintenance.request.custom', string="Main Maintenance Request")
-    maintenance_team_id = fields.Many2one('maintenance.team', string="Maintenance Team")
+    maintenance_request_id = fields.Many2one('maintenance.request.custom', string="Main Maintenance Request Custom")
+    maintenance_team_id = fields.Many2one('maintenance.team.custom', string="Maintenance Team Custom")
     product_id = fields.Many2one('product.product', string='Related Product')
