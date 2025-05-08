@@ -7,5 +7,17 @@
             <field name="category_id" ref="base.module_category_human_resources"/>
         </record>
 
+        <record id="model_break_config" model="ir.model">
+            <field name="name">break.config</field>
+            <field name="model">break.config</field>
+            <field name="state">base</field>
+        </record>
+    
+        <record id="model_break_session" model="ir.model">
+            <field name="name">break.session</field>
+            <field name="model">break.session</field>
+            <field name="state">base</field>
+        </record>
+
     </data>
 </odoo>
