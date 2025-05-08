@@ -8,7 +8,7 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-        'data/default_config.xml',
+        'data/break_config.xml',
         'views/break_config_views.xml',
         'views/break_session_views.xml',
         'views/timer_widget_test_views.xml',
