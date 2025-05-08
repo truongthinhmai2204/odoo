@@ -41,4 +41,4 @@ class BreakReport(models.Model):
 class BreakSessionReport(models.Model):
     _name = 'break.session.report'
 
-    report_line_ids = fields.One2many('break.session.line', 'report_id', string="Lines")
+    report_line_ids = fields.One2many('break.session', 'report_id', string="Lines")
