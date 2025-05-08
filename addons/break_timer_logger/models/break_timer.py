@@ -8,6 +8,8 @@ class BreakSession(models.Model):
     end_time = fields.Datetime(string="End Time")
     is_break = fields.Boolean(string="Is Break", default=False)
     duration = fields.Float(string="Duration (minutes)", compute="_compute_duration", store=True)
+    report_id = fields.Many2one('break.session.report', string="Report")
+
 
     @api.depends('start_time', 'end_time')
     def _compute_duration(self):
@@ -35,3 +37,8 @@ class BreakReport(models.Model):
     total_work = fields.Float(string="Total Work (min)")
     total_break = fields.Float(string="Total Break (min)")
     session_ids = fields.One2many('break.session', 'report_id', string="Sessions")
+
+class BreakSessionReport(models.Model):
+    _name = 'break.session.report'
+
+    report_line_ids = fields.One2many('break.session.line', 'report_id', string="Lines")
