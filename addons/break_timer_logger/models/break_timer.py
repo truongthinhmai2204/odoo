@@ -22,10 +22,10 @@ class BreakConfig(models.Model):
     _name = 'break.config'
     _description = 'Break Timer Configuration'
 
-    name = fields.Char(default="Default Config")
-    work_interval = fields.Integer(string="Work Duration (minutes)", default=25)
-    break_interval = fields.Integer(string="Break Duration (minutes)", default=5)
-    auto_restart = fields.Boolean(string="Auto Restart Session", default=True)
+    name = fields.Char(string="Name")
+    work_duration = fields.Integer(string="Work Duration")
+    break_duration = fields.Integer(string="Break Duration")
+    repeat_count = fields.Integer(string="Repeat Count")
 
 class BreakReport(models.Model):
     _name = 'break.report'
