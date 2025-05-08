@@ -1,0 +1,8 @@
+<odoo>
+    <record id="default_break_config" model="break.config">
+      <field name="name">Default Configuration</field>
+      <field name="work_duration">25</field>
+      <field name="break_duration">5</field>
+      <field name="repeat_count">4</field>
+    </record>
+  </odoo>  
