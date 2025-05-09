@@ -28,6 +28,7 @@ class BreakConfig(models.Model):
     work_duration = fields.Integer(string="Work Duration")
     break_duration = fields.Integer(string="Break Duration")
     repeat_count = fields.Integer(string="Repeat Count")
+    report_id = fields.Many2one('break.session.report', string="Report")
 
 class BreakReport(models.Model):
     _name = 'break.report'
