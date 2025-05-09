@@ -34,6 +34,7 @@ class BreakReport(models.Model):
     _name = 'break.report'
     _description = 'Break/Work Time Report'
 
+    name = fields.Char(string="Name")
     date = fields.Date(default=fields.Date.today)
     total_work = fields.Float(string="Total Work (min)")
     total_break = fields.Float(string="Total Break (min)")
