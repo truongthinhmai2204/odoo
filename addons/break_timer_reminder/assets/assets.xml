@@ -2,6 +2,7 @@
     <template id="assets_backend" name="Break Timer Assets" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
             <script type="module" src="/break_timer_reminder/static/src/js/timer_widget.js"/>
+            <script type="module" src="/break_timer_reminder/static/src/xml/timer_widget.xml"/>
         </xpath>
     </template>
 </odoo>
