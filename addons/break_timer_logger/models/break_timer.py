@@ -4,6 +4,7 @@ class BreakSession(models.Model):
     _name = 'break.session'
     _description = 'Work/Break Session Log'
 
+    name = fields.Char(string="Name")
     start_time = fields.Datetime(string="Start Time", required=True)
     end_time = fields.Datetime(string="End Time")
     is_break = fields.Boolean(string="Is Break", default=False)
