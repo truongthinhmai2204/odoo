@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<templates xml:space="preserve">
-    <t t-name="break_timer_reminder.TimerWidget">
-        <div class="o_timer_widget">
-            <h2><t t-esc="formatTime(remainingSeconds)"/></h2>
-            <button type="button" t-on-click="startTimer">▶️ Bắt đầu</button>
-            <button type="button" t-on-click="stopTimer">⏸️ Dừng</button>
-            <button type="button" t-on-click="resetTimer">🔄 Reset</button>
-        </div>
-    </t>
-</templates>
+<odoo>
+    <templates xml:space="preserve">
+        <t t-name="break_timer_reminder.TimerWidget">
+            <div class="o_timer_widget">
+                <h2><t t-esc="formatTime(remainingSeconds)"/></h2>
+                <button type="button" t-on-click="startTimer">▶️ Bắt đầu</button>
+                <button type="button" t-on-click="stopTimer">⏸️ Dừng</button>
+                <button type="button" t-on-click="resetTimer">🔄 Reset</button>
+            </div>
+        </t>
+    </templates>
+</odoo>
