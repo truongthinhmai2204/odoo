@@ -38,5 +38,7 @@ class BreakReport(models.Model):
     date = fields.Date(default=fields.Date.today)
     total_work = fields.Float(string="Total Work (min)")
     total_break = fields.Float(string="Total Break (min)")
+    start_time = fields.Datetime(string="Start Time", required=True)
+    end_time = fields.Datetime(string="End Time")
     session_ids = fields.One2many('break.session', 'report_ids', string="Sessions")
     config_ids = fields.One2many('break.config', 'report_ids', string="Configurations") 
