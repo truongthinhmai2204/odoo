@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <templates xml:space="preserve">
-        <t t-name="break_timer_reminder.timer_widget">
+        <t t-name="break_timer_reminder.TimerWidget">
             <div class="o_timer_widget">
                 <h2><t t-esc="formatTime(remainingSeconds)"/></h2>
                 <button type="button" t-on-click="startTimer">▶️ Bắt đầu</button>
