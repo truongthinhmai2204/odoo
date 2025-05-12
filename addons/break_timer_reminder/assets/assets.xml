@@ -2,7 +2,13 @@
     <template id="assets_backend" name="Break Timer Assets" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
             <script type="module" src="/break_timer_reminder/static/src/js/timer_widget.js"/>
-            <script type="module" src="/break_timer_reminder/static/src/xml/timer_widget.xml"/>
         </xpath>
+    </template>
+
+    <!-- Template OWL phải được load qua QWeb -->
+    <template id="timer_widget_template" name="Timer Widget Template">
+        <t t-call="web.basic_layout">
+            <t t-call-assets="web.assets_backend" t-js="true"/>
+        </t>
     </template>
 </odoo>
