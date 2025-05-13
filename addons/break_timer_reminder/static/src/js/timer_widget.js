@@ -45,4 +45,4 @@ class TimerWidget extends Component {
 
 TimerWidget.template = "break_timer_reminder.timer_widget";
 
-registry.category("actions").add("break_timer_reminder.timer_widget", TimerWidget);
+registry.category("actions").get("break_timer_reminder.timer_widget", TimerWidget);
