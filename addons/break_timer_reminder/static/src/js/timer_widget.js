@@ -1,13 +1,12 @@
 /** @odoo-module **/
 
-import { Component } from "@odoo/owl";
+import { Component, useState } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 
-class TimerWidget extends Component {
+export class TimerWidget extends Component {
     setup() {
-        this.timer = null;
-        this.remainingSeconds = 1500; // 25 phút mặc định
+        this.state = useState({ remainingSeconds: 1500, timer: null });
         this.notification = useService("notification");
     }
 
@@ -18,31 +17,28 @@ class TimerWidget extends Component {
     }
 
     startTimer() {
-        if (this.timer) return;
-        this.timer = setInterval(() => {
-            if (this.remainingSeconds > 0) {
-                this.remainingSeconds--;
-                this.render();
+        if (this.state.timer) return;
+        this.state.timer = setInterval(() => {
+            if (this.state.remainingSeconds > 0) {
+                this.state.remainingSeconds--;
             } else {
-                clearInterval(this.timer);
-                this.timer = null;
+                clearInterval(this.state.timer);
+                this.state.timer = null;
                 this.notification.add("Hết giờ! Nghỉ thôi nào!", { type: "success" });
             }
         }, 1000);
     }
 
     stopTimer() {
-        clearInterval(this.timer);
-        this.timer = null;
+        clearInterval(this.state.timer);
+        this.state.timer = null;
     }
 
     resetTimer() {
         this.stopTimer();
-        this.remainingSeconds = 1500;
-        this.render();
+        this.state.remainingSeconds = 1500;
     }
 }
 
 TimerWidget.template = "break_timer_reminder.timer_widget";
-
 registry.category("actions").add("break_timer_reminder.timer_widget", TimerWidget);
