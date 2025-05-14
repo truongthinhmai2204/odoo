@@ -14,8 +14,9 @@
         'views/timer_widget_test_view.xml',
     ],
     "assets": {
-        "web.assets_qweb": [
-            "break_timer_reminder/static/src/xml/timer_widget.xml",
+        'web.assets_backend': [
+            'break_timer_reminder/static/src/js/timer_widget.js',
+            'break_timer_reminder/static/src/xml/timer_widget.xml',
         ],
     },
     'installable': True,
