@@ -16,8 +16,6 @@
     "assets": {
         "web.assets_backend": [
             "break_timer_reminder/static/src/js/timer_widget.js",
-        ],
-        "web.assets_qweb": [
             "break_timer_reminder/static/src/xml/timer_widget.xml",
         ],
     },
