@@ -1,7 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="assets_backend" name="Break Timer Assets" inherit_id="web.assets_backend">
+  <template id="assets_backend" inherit_id="web.assets_backend" name="Break Timer Assets">
+    <xpath expr="." position="inside">
+      <script type="module" src="/break_timer_reminder/static/src/js/timer_widget.js"/>
+      <template id="timer_widget_template" name="Timer Widget Template" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
-            <script type="module" src="/break_timer_reminder/static/src/components/timer_widget.js"/>
+          <t t-call="break_timer_reminder.TimerWidget"/>
         </xpath>
-    </template>
+      </template>
+    </xpath>
+  </template>
 </odoo>
