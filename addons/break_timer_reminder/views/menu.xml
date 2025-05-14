@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <menuitem id="menu_break_root" name="Break Timer"/>
+  <menuitem id="menu_break_timer_widget" name="Timer" parent="menu_break_root"
+            action="action_open_timer_widget"/>
+</odoo>
