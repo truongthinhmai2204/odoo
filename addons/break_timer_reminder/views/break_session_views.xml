@@ -1,42 +1,42 @@
 <odoo>
-    <record id="view_break_session_tree" model="ir.ui.view">
-      <field name="name">break.session.tree</field>
-      <field name="model">break.session</field>
-      <field name="arch" type="xml">
-        <tree string="Break Sessions">
-          <field name="name"/>
-          <field name="start_time"/>
-          <field name="end_time"/>
-          <field name="is_break"/>
-          <field name="duration"/>
-        </tree>
-      </field>
-    </record>
-  
-    <record id="view_break_session_form" model="ir.ui.view">
-      <field name="name">break.session.form</field>
-      <field name="model">break.session</field>
-      <field name="arch" type="xml">
-        <form string="Break Session">
-          <sheet>
-            <group>
-              <field name="name"/>
-              <field name="start_time"/>
-              <field name="end_time"/>
-              <field name="is_break"/>
-              <field name="duration" readonly="1"/>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
-  
-    <record id="action_break_session" model="ir.actions.act_window">
-      <field name="name">Break Sessions</field>
-      <field name="res_model">break.session</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-  
-    <menuitem id="menu_break_session" name="Sessions" parent="menu_break_root" action="action_break_session"/>
-  </odoo>
+  <record id="view_break_session_tree" model="ir.ui.view">
+    <field name="name">break.session.tree</field>
+    <field name="model">break.session</field>
+    <field name="arch" type="xml">
+      <tree string="Break Sessions">
+        <field name="name"/>
+        <field name="start_time"/>
+        <field name="end_time"/>
+        <field name="is_break"/>
+        <field name="duration"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_break_session_form" model="ir.ui.view">
+    <field name="name">break.session.form</field>
+    <field name="model">break.session</field>
+    <field name="arch" type="xml">
+      <form string="Break Session">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="start_time"/>
+            <field name="end_time"/>
+            <field name="is_break"/>
+            <field name="duration" readonly="1"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_break_session" model="ir.actions.act_window">
+    <field name="name">Break Sessions</field>
+    <field name="res_model">break.session</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_break_session" name="Sessions" parent="menu_break_root" action="action_break_session"/>
+</odoo>
   
