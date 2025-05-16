@@ -1,5 +1,4 @@
 /** @odoo-module **/
-
 import { Component } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
@@ -43,6 +42,8 @@ class TimerWidget extends Component {
     }
 }
 
-TimerWidget.template = "break_timer_reminder.TimerWidget";
+TimerWidget.template = "break_timer_reminder.timer_widget";
 
-registry.category("actions").add("break_timer_reminder.timer_widget", TimerWidget);
+registry.category("actions").addMany({
+    "break_timer_reminder.timer_widget": TimerWidget,
+});
