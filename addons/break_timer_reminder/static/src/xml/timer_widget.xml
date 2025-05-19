@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-  <templates xml:space="preserve">
-    <t t-name="break_timer_reminder.timer_widget" owl="1">
-      <div class="o_timer_widget">
-        <h2><t t-esc="formatTime(remainingSeconds)"/></h2>
-        <button type="button" t-on-click="startTimer">▶️ Bắt đầu</button>
-        <button type="button" t-on-click="stopTimer">⏸️ Dừng</button>
-        <button type="button" t-on-click="resetTimer">🔄 Reset</button>
-      </div>
-    </t>
-  </templates>
+  <template id="timer_widget" name="Break Timer Widget">
+    <div id="my_timer_widget"/>
+  </template>
 </odoo>

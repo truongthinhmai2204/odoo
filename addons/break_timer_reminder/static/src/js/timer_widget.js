@@ -1,6 +1,6 @@
 /** @odoo-module **/
-import { Component } from "@odoo/owl";
-import { registry } from "@web/core/registry";
+
+import { Component, onWillStart, mount, xml } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 
 class TimerWidget extends Component {
@@ -25,7 +25,7 @@ class TimerWidget extends Component {
             } else {
                 clearInterval(this.timer);
                 this.timer = null;
-                this.notification.add("Hết giờ! Nghỉ thôi nào!", { type: "success" });
+                this.notification.add("⏰ Hết giờ! Nghỉ thôi!", { type: "success" });
             }
         }, 1000);
     }
@@ -40,6 +40,26 @@ class TimerWidget extends Component {
         this.remainingSeconds = 1500;
         this.render();
     }
-}
 
-TimerWidget.template = "break_timer_reminder.timer_widget";
+    get formattedTime() {
+        return this.formatTime(this.remainingSeconds);
+    }
+}
+TimerWidget.template = xml/* xml */ `
+    <div class="o_timer_widget" style="text-align:center; padding:1rem;">
+        <h2 t-esc="formattedTime"/>
+        <div style="margin-top: 1rem;">
+            <button t-on-click="startTimer">▶️ Bắt đầu</button>
+            <button t-on-click="stopTimer">⏸️ Dừng</button>
+            <button t-on-click="resetTimer">🔄 Reset</button>
+        </div>
+    </div>
+`;
+
+// Gắn widget vào phần tử cụ thể trong DOM khi DOM đã sẵn sàng
+document.addEventListener("DOMContentLoaded", () => {
+    const target = document.querySelector("#my_timer_widget");
+    if (target) {
+        mount(TimerWidget, { target });
+    }
+});
