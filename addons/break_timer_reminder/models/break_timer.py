@@ -21,16 +21,6 @@ class BreakSession(models.Model):
             else:
                 rec.duration = 0.0
 
-class BreakConfig(models.Model):
-    _name = 'break.config'
-    _description = 'Break Timer Configuration'
-
-    name = fields.Char(string="Name")
-    work_duration = fields.Integer(string="Work Duration")
-    break_duration = fields.Integer(string="Break Duration")
-    repeat_count = fields.Integer(string="Repeat Count")
-    report_id = fields.Many2one('break.report', string="Report")
-
 class BreakReport(models.Model):
     _name = 'break.report'
     _description = 'Break/Work Time Report'
