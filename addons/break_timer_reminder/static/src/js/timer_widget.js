@@ -58,7 +58,7 @@ TimerWidget.template = xml/* xml */ `
 
 // Gắn widget vào phần tử cụ thể trong DOM khi DOM đã sẵn sàng
 document.addEventListener("DOMContentLoaded", () => {
-    const target = document.querySelector("#my_timer_widget");
+    const target = document.querySelector("my_timer_widget");
     if (target) {
         mount(TimerWidget, { target });
     }
