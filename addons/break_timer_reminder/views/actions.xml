@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="action_open_timer_widget" model="ir.actions.client">
+    <field name="name">Break Timer</field>
+    <field name="tag">timer_widget</field>
+  </record>
+</odoo>
