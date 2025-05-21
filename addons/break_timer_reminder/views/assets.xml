@@ -1,7 +1,0 @@
-<odoo>
-  <template id="inject_timer_widget" inherit_id="web.layout">
-    <xpath expr="//div[@class='o_web_client']" position="inside">
-      <t t-call="break_timer_reminder.timer_widget"/>
-    </xpath>
-  </template>
-</odoo>
