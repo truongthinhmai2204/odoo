@@ -1,10 +1,4 @@
 <odoo>
-  <template id="assets_backend" name="Break Timer Assets" inherit_id="web.assets_backend">
-    <xpath expr="." position="inside">
-      <script type="module" src="/break_timer_reminder/static/src/js/timer_widget.js"/>
-    </xpath>
-  </template>
-
   <template id="inject_timer_widget" inherit_id="web.webclient">
     <xpath expr="//div[@class='o_web_client']" position="inside">
       <t t-call="break_timer_reminder.timer_widget"/>
