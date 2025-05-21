@@ -11,7 +11,6 @@
         "data/break_config.xml",
         "views/break_config_views.xml",
         "views/break_session_views.xml",
-        "views/assets.xml",
         "views/menu.xml",
     ],
     "assets": {
