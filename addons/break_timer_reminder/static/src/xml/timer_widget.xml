@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-  <template id="timer_widget" name="Break Timer Widget">
-    <div id="my_timer_widget"/>
+  <template id="inject_timer_widget" name="Inject Timer Widget" inherit_id="web.webclient">
+    <xpath expr="//div[@class='o_web_client']" position="inside">
+      <div id="my_timer_widget"/>
+    </xpath>
   </template>
 </odoo>

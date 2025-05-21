@@ -1,6 +1,6 @@
 /** @odoo-module **/
 
-import { Component, onWillStart, mount, xml } from "@odoo/owl";
+import { Component, mount, xml } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 
 class TimerWidget extends Component {
@@ -56,9 +56,8 @@ TimerWidget.template = xml/* xml */ `
     </div>
 `;
 
-// Gắn widget vào phần tử cụ thể trong DOM khi DOM đã sẵn sàng
 document.addEventListener("DOMContentLoaded", () => {
-    const target = document.querySelector("my_timer_widget");
+    const target = document.querySelector("#my_timer_widget");
     if (target) {
         mount(TimerWidget, { target });
     }
