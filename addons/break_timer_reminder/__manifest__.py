@@ -12,6 +12,7 @@
         "views/break_config_views.xml",
         "views/break_session_views.xml",
         "views/menu.xml",
+        "views/actions.xml",
     ],
     "assets": {
         "web.assets_backend": [
